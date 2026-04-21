@@ -1,5 +1,14 @@
-# Implementation of Sobel Filter on Verilog
+# Final Project CS220: Sobel Edge-Detector Optimization
 
+UCR, Spring 2026, CS220 Synthesis of Digital Systems
+
+**Team:** Alice (@alice8625), Sydney (@sydnyepie), Nicko (@nickocruzm)
+
+
+
+Below this point is the original README.md provided by original author
+## Implementation of Sobel Filter on Verilog
+---
 The code currently computes convolution of an image with a fixed kernel to find a gradient. By extending the logic to two gradients along x and y axes, and computing the square root of the squared sums, Sobel filter can be implemented.
 
 The convolution approach has been adopted from [this paper](http://ieeexplore.ieee.org/document/5272559/).

@@ -24,9 +24,12 @@ module conv(
 	wire [15:0] wire_20; wire [15:0] wire_21; wire [15:0] wire_22;
 
 	// 3*3 kernel
-	integer kernel_00 = 1; integer kernel_01 = 2; integer kernel_02 = 1;
-	integer kernel_10 = 0; integer kernel_11 = 0; integer kernel_12 = 0;
-	integer kernel_20 = 1; integer kernel_21 = 2; integer kernel_22 = 1;	
+	wire [7:0] kernel_00; wire [7:0] kernel_01; wire [7:0] kernel_02;
+	wire [7:0] kernel_10; wire [7:0] kernel_11; wire [7:0] kernel_12;
+	wire [7:0] kernel_20; wire [7:0] kernel_21; wire [7:0] kernel_22;
+	assign kernel_00 = 1; assign kernel_01 = 2; assign kernel_02 = 1;
+	assign kernel_10 = 0; assign kernel_11 = 0; assign kernel_12 = 0;
+	assign kernel_20 = 1; assign kernel_21 = 2; assign kernel_22 = 1;
 
 	// Row : 1
 	mac mac_00(pxl_in, kernel_00, 0, wire_00);

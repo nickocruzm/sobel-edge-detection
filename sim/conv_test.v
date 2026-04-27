@@ -41,14 +41,17 @@ initial begin
 	reset = 0;
 	pxl_in = 0;
 
+	$monitor("t=%0t clk=%b pxl_in=%0d | pxl_out=%0d valid=%b", $time, clk, pxl_in, pxl_out, valid);
+
 	// 5*5 image
-	#20 pxl_in = 1; #20 pxl_in = 2; #20 pxl_in = 3; #20 pxl_in = 4; #20 pxl_in = 5;	
+	#20 pxl_in = 1; #20 pxl_in = 2; #20 pxl_in = 3; #20 pxl_in = 4; #20 pxl_in = 5;
 	#20 pxl_in = 0; #20 pxl_in = 1; #20 pxl_in = 0; #20 pxl_in = 1; #20 pxl_in = 0;
 	#20 pxl_in = 1; #20 pxl_in = 2; #20 pxl_in = 3; #20 pxl_in = 4; #20 pxl_in = 5;
 	#20 pxl_in = 0; #20 pxl_in = 1; #20 pxl_in = 0; #20 pxl_in = 1; #20 pxl_in = 0;
 	#20 pxl_in = 1; #20 pxl_in = 2; #20 pxl_in = 3; #20 pxl_in = 4; #20 pxl_in = 5;
 
-	end 
+	#100 $finish;
+	end
 	always #10 clk = ~ clk;
 
 endmodule

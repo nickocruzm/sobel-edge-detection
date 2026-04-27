@@ -5,7 +5,7 @@
 module mac(
     input [7:0] in,
     input [7:0] w,
-    input [7:0] b,
+    input [15:0] b,
     output [15:0] out
     );
 

@@ -1,0 +1,32 @@
+# Xcelium simulation artifacts
+sim/xcelium.d/
+sim/*.log
+sim/*.history
+sim/*.err
+sim/*.fsdb
+sim/novas.*
+sim/verdiLog/
+
+# VCS simulation artifacts
+sim/simv
+sim/simv.daidir/
+sim/csrc/
+sim/ucli.key
+
+# Synthesis outputs (Synopsys DC)
+syn/alib-52/
+syn/cksum_dir/
+syn/default.svf
+syn/command.log
+syn/*.pvl
+syn/*.syn
+syn/*.mr
+syn/*_synthesized.ddc
+syn/*_synthesized.v
+syn/*_const.sdc
+syn/*_const.sdf
+syn/reports/
+
+# Crash dumps
+.bpad/
+*.dmp

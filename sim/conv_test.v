@@ -54,4 +54,11 @@ initial begin
 	end
 	always #10 clk = ~ clk;
 
+	   // Dump file for waveform viewing
+   	initial begin
+      		$fsdbDumpfile("conv.fsdb");
+      		$fsdbDumpvars(0, conv_test, "+all");
+      		$dumpfile("conv.vcd");
+      		$dumpvars(0, conv_test);
+   	end
 endmodule

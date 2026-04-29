@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 module shift_testbench;
 
   //Inputs
@@ -29,8 +31,20 @@ module shift_testbench;
 	data_in = 110;
 	#40;
 	
+    	$display("All tests completed successfully\n\n");
+    	$finish;
     end
 	
-    always #10 clk = ~ clk;
-      
+    //always #10 clk = ~ clk; //part of original code but causes infinite
+    //looping
+    
+    initial begin
+        $fsdbDumpfile("shift_tb.fsdb");
+        $fsdbDumpvars(0, shift_testbench, "+all");
+        $dumpfile("shift_tb.vcd");
+        $dumpvars(0, shift_testbench);
+    end
+
+
+
 endmodule

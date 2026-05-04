@@ -5,6 +5,76 @@ UCR, Spring 2026, CS220 Synthesis of Digital Systems
 **Team:** Alice (@alice8625), Sydney (@sydnyepie), Nicko (@nickocruzm)
 
 ---
+## How to pass an image and test
+
+### Prerequisites
+Install Pillow (Python is already on the remote machine):
+```bash
+pip3 install Pillow
+```
+
+### Step 1 — Convert the image to pixel data
+From the `sim/` directory, run `img_to_binary.py` with your image:
+```bash
+cd sim/
+python3 img_to_binary.py <path_to_image> [output_file]
+```
+- The image is resized to **32×32** and converted to grayscale automatically.
+- `output_file` defaults to `<image_stem>.txt` if omitted.
+- The testbench reads from `pixels.txt`, so either name it that directly or copy/rename afterwards:
+```bash
+python3 img_to_binary.py ../Material/<img_name>.png pixels.txt
+```
+- Currently only use .png images if you want to add images.
+- 
+
+### Step 2 — Compile the image convolution testbench
+Still in `sim/`, compile with VCS:
+```bash
+vcs img_conv_test.v ../rtl/conv.v ../rtl/mac.v ../rtl/register.v ../rtl/shift.v \
+    -full64 -debug_access -o img_conv_simv
+```
+
+### Step 3 — Run the simulation
+```bash
+./img_conv_simv
+```
+- Console output shows `pxl_in` / `pxl_out` / `valid` for every clock cycle.
+- `valid=1` marks cycles where the output pixel is meaningful (pipeline has filled).
+- A waveform file `img_conv.vcd` is written automatically and can be opened in DVE or GTKWave.
+
+### Step 4 — Run PTPX power analysis
+> **Requires synthesis to have been run first** — `syn/conv_synthesized.v` must exist.
+> If it doesn't, run synthesis first (see **How to Run → Step 2** below).
+
+From the `ptpx/` directory, launch PrimeTime PX using the image convolution script:
+```bash
+cd ptpx/
+pt_shell -f img_conv_ptpx.tcl |& tee logs/img_conv_ptpx_run.log
+```
+
+This reads `../sim/img_conv.vcd` (the waveform from Step 3) and annotates switching
+activity onto the synthesized netlist to compute real dynamic power.
+
+Power reports are written to `ptpx/`:
+| File | Contents |
+|------|----------|
+| `img_conv_total_power.log` | Total dynamic + leakage power summary |
+| `img_conv_cell_power.log` | Per-cell power breakdown |
+| `img_conv_unannotated.log` | Nets with no VCD activity annotation (debug) |
+
+### Where to find all benchmark numbers
+
+| Metric | File |
+|--------|------|
+| **Dynamic power** | `ptpx/img_conv_total_power.log` |
+| **Per-cell power** | `ptpx/img_conv_cell_power.log` |
+| **Timing / WNS** | `syn/reports/conv_timing_reports.log` |
+| **Area** | `syn/reports/conv_area_reports.log` |
+| **Static power** | `syn/reports/conv_power_reports.log` |
+| **QoR summary** | `syn/reports/conv_qor_reports.log` |
+
+---
 
 ## How to Run
 

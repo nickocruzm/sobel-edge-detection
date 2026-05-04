@@ -1,6 +1,6 @@
 # Change the following to your home directory
 #set HOME      "/home/csgrad/nmartinez"
-set HOME      "/home/csgrad/shilt003"
+set HOME      "/home/csgrad/nmartinez"
 set DIRECTORY   "sobel-edge-detection"
 
 # Set search and library paths

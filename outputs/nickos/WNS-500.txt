@@ -1,0 +1,604 @@
+Info: [VCS_SAVE_RESTORE_INFO] ASLR (Address Space Layout Randomization) is detected on the machine. To enable $save functionality, ASLR will be switched off and simv re-executed.
+Please use '-no_save' simv switch to avoid this.
+
+                           Design Compiler Graphical 
+                                 DC Ultra (TM)
+                                  DFTMAX (TM)
+                              Power Compiler (TM)
+                                 DesignWare (R)
+                                 DC Expert (TM)
+                               Design Vision (TM)
+                               HDL Compiler (TM)
+                               VHDL Compiler (TM)
+                                  DFT Compiler
+                               Design Compiler(R)
+
+              Version W-2024.09-SP5-4 for linux64 - Sep 10, 2025 
+
+                    Copyright (c) 1988 - 2025 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Initializing...
+Current time:       Fri May  1 16:34:26 2026
+Hostname:           bender.engr.ucr.edu
+CPU Model:          Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+CPU Details:        Cores = 40 : Sockets = 2 : Cache Size = 14080 KB : Freq = 2.50 GHz
+OS:                 Linux 4.18.0-553.115.1.el8_10.x86_64
+RAM:                251 GB (Free 229 GB)
+Swap:                 3 GB (Free   3 GB)
+Work Filesystem:    /home/csgrad mounted to toaster:/home/grad/cs
+Tmp Filesystem:     / mounted to /dev/md127
+Work Disk:          6745 GB (Free 3811 GB)
+Tmp Disk:           888 GB (Free 224 GB)
+
+CPU Load: 1%, Ram Free: 229 GB, Swap Free: 3 GB, Work Disk Free: 3811 GB, Tmp Disk Free: 224 GB
+# Change the following to your home directory
+#set HOME      "/home/csgrad/nmartinez"
+set HOME      "/home/csgrad/nmartinez"
+/home/csgrad/nmartinez
+set DIRECTORY   "sobel-edge-detection"
+sobel-edge-detection
+# Set search and library paths
+set_app_var search_path ${HOME}/${DIRECTORY}/rtl
+/home/csgrad/nmartinez/sobel-edge-detection/rtl
+set_app_var link_path /usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db
+/usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db
+set_app_var target_library /usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db
+/usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db
+# Power grid settings
+set dc_allow_rtl_pg       true
+true
+set mw_logic1_net "VDD"
+VDD
+set mw_logic0_net "VSS"
+VSS
+# Define the design name
+set DESIGN_NAME     "conv"
+conv
+# Analyze the Verilog source files
+analyze -format verilog "conv.v mac.v register.v shift.v"
+Running PRESTO HDLC
+Compiling source file /home/csgrad/nmartinez/sobel-edge-detection/rtl/conv.v
+Warning:  /home/csgrad/nmartinez/sobel-edge-detection/rtl/conv.v:72: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Warning:  /home/csgrad/nmartinez/sobel-edge-detection/rtl/conv.v:73: The construct 'declaration initial assignment' is not supported in synthesis; it is ignored. (VER-708)
+Compiling source file /home/csgrad/nmartinez/sobel-edge-detection/rtl/mac.v
+Compiling source file /home/csgrad/nmartinez/sobel-edge-detection/rtl/register.v
+Compiling source file /home/csgrad/nmartinez/sobel-edge-detection/rtl/shift.v
+Presto compilation completed successfully.
+Loading db file '/usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db'
+1
+# Elaborate the design
+elaborate ${DESIGN_NAME} -architecture verilog -library DEFAULT
+Loading db file '/usr/local/synopsys/syn/W-2024.09-SP5-4/libraries/syn/gtech.db'
+Loading db file '/usr/local/synopsys/syn/W-2024.09-SP5-4/libraries/syn/standard.sldb'
+  Loading link library 'saed32rvt_tt0p78v25c'
+  Loading link library 'gtech'
+Running PRESTO HDLC
+Warning:  /home/csgrad/nmartinez/sobel-edge-detection/rtl/conv.v:80: signed to unsigned conversion occurs. (VER-318)
+Warning:  /home/csgrad/nmartinez/sobel-edge-detection/rtl/conv.v:79: signed to unsigned conversion occurs. (VER-318)
+
+Inferred memory devices in process in routine 'conv' in file
+         /home/csgrad/nmartinez/sobel-edge-detection/rtl/conv.v'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|      temp_reg       | Flip-flop |   1   |  N  | N  | None  | None  | N  |  75  |
+|     counter_reg     | Flip-flop |   9   |  Y  | N  | None  | None  | N  |  75  |
+==================================================================================
+Presto compilation completed successfully. (conv)
+Module: conv, Ports: 203, Input: 10, Output: 193, Inout: 0
+Module: conv, Registers: 10, Async set/reset: 0, Sync set/reset: 0
+Information: Module conv report end. (ELAB-965)
+Elaborated 1 design.
+Current design is now 'conv'.
+Information: Building the design 'mac'. (HDL-193)
+Presto compilation completed successfully. (mac)
+Module: mac, Ports: 48, Input: 32, Output: 16, Inout: 0
+Module: mac, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Information: Module mac report end. (ELAB-965)
+Information: Building the design 'register'. (HDL-193)
+
+Inferred memory devices in process in routine 'register' in file
+         /home/csgrad/nmartinez/sobel-edge-detection/rtl/register.v'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|        q_reg        | Flip-flop |  16   |  Y  | N  | None  | None  | N  |  9   |
+==================================================================================
+Presto compilation completed successfully. (register)
+Module: register, Ports: 34, Input: 18, Output: 16, Inout: 0
+Module: register, Registers: 16, Async set/reset: 0, Sync set/reset: 0
+Information: Module register report end. (ELAB-965)
+Information: Building the design 'shift'. (HDL-193)
+
+Inferred memory devices in process in routine 'shift' in file
+         /home/csgrad/nmartinez/sobel-edge-detection/rtl/shift.v'.
+==================================================================================
+|    Register Name    |   Type    | Width | Bus | MB |  Set  | Reset | ST | Line |
+==================================================================================
+|      hr_15_reg      | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_0_reg       | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_1_reg       | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_2_reg       | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_3_reg       | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_4_reg       | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_5_reg       | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_6_reg       | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_7_reg       | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_8_reg       | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_9_reg       | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_10_reg      | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_11_reg      | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_12_reg      | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_13_reg      | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+|      hr_14_reg      | Flip-flop |   2   |  Y  | N  | None  | None  | N  |  20  |
+==================================================================================
+Presto compilation completed successfully. (shift)
+Module: shift, Ports: 33, Input: 17, Output: 16, Inout: 0
+Module: shift, Registers: 32, Async set/reset: 0, Sync set/reset: 0
+Information: Module shift report end. (ELAB-965)
+1
+# Link the design to ensure all references are resolved
+link
+
+  Linking design 'conv'
+  Using the following designs and libraries:
+  --------------------------------------------------------------------------
+  saed32rvt_tt0p78v25c (library) /usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db
+
+1
+# Flatten the hierarchy to ensure all submodules are ungrouped
+ungroup -all -flatten -simple_names
+Information: Changed wire load model for 'register' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'mac' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'register' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'mac' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'register' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'mac' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'register' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'mac' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'register' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'mac' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'register' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'mac' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'shift' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'register' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'mac' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'register' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'mac' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'register' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'mac' from '(none)' to 'ForQA'. (OPT-170)
+Information: Updating graph... (UID-83)
+1
+# Constraints
+# Clock definition: 2 ns period (500 MHz), 50% duty cycle
+create_clock -name "clk" -period 2 -waveform {0 1} [get_ports "clk"]
+1
+set_dont_touch_network [get_clocks "clk"]
+1
+# Input and output delays relative to clock
+set_input_delay 0.1 -max -rise -clock "clk" [get_ports "reset"]
+1
+set_input_delay 0.1 -max -fall -clock "clk" [get_ports "reset"]
+1
+set_input_delay 0.1 -max -rise -clock "clk" [get_ports "pxl_in[*]"]
+1
+set_input_delay 0.1 -max -fall -clock "clk" [get_ports "pxl_in[*]"]
+1
+set_output_delay 0.1 -max -rise -clock "clk" [get_ports "pxl_out[*]"]
+1
+set_output_delay 0.1 -max -fall -clock "clk" [get_ports "pxl_out[*]"]
+1
+set_output_delay 0.1 -max -rise -clock "clk" [get_ports "valid"]
+1
+set_output_delay 0.1 -max -fall -clock "clk" [get_ports "valid"]
+1
+# Clock uncertainty for setup and hold times
+set_clock_uncertainty 0.2 -setup [get_clocks "clk"]
+1
+set_clock_uncertainty 0.2 -hold [get_clocks "clk"]
+1
+# General design constraints
+set_max_fanout 100 [get_designs "*"]
+1
+set_fix_multiple_port_nets -all -buffer_constants
+1
+# Design-specific constraints
+set_input_transition 0.1 [get_ports "pxl_in[*]"]
+1
+set_input_transition 0.1 [get_ports "reset"]
+1
+# Set capacitive load to outputs
+set_load 0.005 [get_ports "pxl_out[*]"]  ;# 5 fF in pF units (SAED32 library uses pF)
+1
+set_load 0.005 [get_ports "valid"]
+1
+# Check the design for issues
+check_design
+ 
+****************************************
+check_design summary:
+Version:     W-2024.09-SP5-4
+Date:        Fri May  1 16:34:27 2026
+****************************************
+
+                   Name                                            Total
+--------------------------------------------------------------------------------
+Inputs/Outputs                                                     16
+    Shorted outputs (LINT-31)                                      16
+
+Cells                                                               1
+    Cells do not drive (LINT-1)                                     1
+--------------------------------------------------------------------------------
+
+Warning: In design 'conv', cell 'B_1' does not drive any nets. (LINT-1)
+Warning: In design 'conv', output port 'reg_22[15]' is connected directly to output port 'pxl_out[15]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[14]' is connected directly to output port 'pxl_out[14]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[13]' is connected directly to output port 'pxl_out[13]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[12]' is connected directly to output port 'pxl_out[12]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[11]' is connected directly to output port 'pxl_out[11]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[10]' is connected directly to output port 'pxl_out[10]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[9]' is connected directly to output port 'pxl_out[9]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[8]' is connected directly to output port 'pxl_out[8]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[7]' is connected directly to output port 'pxl_out[7]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[6]' is connected directly to output port 'pxl_out[6]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[5]' is connected directly to output port 'pxl_out[5]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[4]' is connected directly to output port 'pxl_out[4]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[3]' is connected directly to output port 'pxl_out[3]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[2]' is connected directly to output port 'pxl_out[2]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[1]' is connected directly to output port 'pxl_out[1]'. (LINT-31)
+Warning: In design 'conv', output port 'reg_22[0]' is connected directly to output port 'pxl_out[0]'. (LINT-31)
+1
+# Perform synthesis with optimization
+compile_ultra -incremental
+Loading db file '/usr/local/synopsys/syn/W-2024.09-SP5-4/libraries/syn/dw_foundation.sldb'
+Information: Failed to find dw_foundation.sldb in the user defined search_path, load it from 'Synopsys Root'. (UISN-70)
+Warning: DesignWare synthetic library dw_foundation.sldb is added to the synthetic_library in the current command. (UISN-40)
+Information: Performing leakage power optimization. (PWR-850)
+CPU Load: 1%, Ram Free: 229 GB, Swap Free: 3 GB, Work Disk Free: 3811 GB, Tmp Disk Free: 224 GB
+Alib files are up-to-date.
+Information: Evaluating DesignWare library utilization. (UISN-27)
+
+============================================================================
+| DesignWare Building Block Library  |         Version         | Available |
+============================================================================
+| Basic DW Building Blocks           | W-2024.09-DWBB_202409.5 |     *     |
+| Licensed DW Building Blocks        | W-2024.09-DWBB_202409.5 |     *     |
+============================================================================
+
+====================================================================================================
+| Flow Information                                                                                 |
+----------------------------------------------------------------------------------------------------
+| Flow         | Design Compiler                                                                   |
+| Command Line | compile_ultra -incremental                                                        |
+====================================================================================================
+| Design Information                                      | Value                                  |
+====================================================================================================
+| Number of Scenarios                                     | 0                                      |
+| Leaf Cell Count                                         | 283                                    |
+| Number of User Hierarchies                              | 0                                      |
+| Sequential Cell Count                                   | 218                                    |
+| Macro Count                                             | 0                                      |
+| Pad Count                                               | 0                                      |
+| Number of Power Domains                                 | 0                                      |
+| Number of Path Groups                                   | 2                                      |
+| Number of VT Class                                      | 1                                      |
+| Number of Clocks                                        | 1                                      |
+| Number of Dont Touch Cells                              | 21                                     |
+| Number of Dont Touch Nets                               | 1                                      |
+| Number of Size Only Cells                               | 0                                      |
+| Design with Target Library Subset (with clock_path)     | false  (false )                        |
+| Design with UPF Data                                    | false                                  |
+----------------------------------------------------------------------------------------------------
+| Variables                                               | Value                                  |
+----------------------------------------------------------------------------------------------------
+| set_fix_multiple_port_nets                              | -all -buffer_constants                 |
+====================================================================================================
+
+Information: There are 17 potential problems in your design. Please run 'check_design' for more information. (LINT-99)
+
+
+Loaded alib file './alib-52/saed32rvt_tt0p78v25c.db.alib'
+Information: State dependent leakage is now switched from on to off.
+
+  Beginning Pass 1 Mapping  (Incremental)
+  ------------------------
+  Processing 'conv'
+Information: Added key list 'DesignWare' to design 'conv'. (DDB-72)
+Information: The register 'q_reg[8]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[9]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[10]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[11]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[12]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[13]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[14]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[15]' is a constant and will be removed. (OPT-1206)
+
+  Updating timing information
+Information: Updating design information... (UID-85)
+Information: The library cell 'PMT3_RVT' in the library 'saed32rvt_tt0p78v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT2_RVT' in the library 'saed32rvt_tt0p78v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'PMT1_RVT' in the library 'saed32rvt_tt0p78v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT3_RVT' in the library 'saed32rvt_tt0p78v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT2_RVT' in the library 'saed32rvt_tt0p78v25c' is not characterized for internal power. (PWR-536)
+Information: The library cell 'NMT1_RVT' in the library 'saed32rvt_tt0p78v25c' is not characterized for internal power. (PWR-536)
+Information: The target library(s) contains cell(s), other than black boxes, that are not characterized for internal power. (PWR-24)
+  Mapping 'conv_DP_OP_45_122_6965_0'
+  Mapping 'conv_DW01_add_0'
+  Mapping 'conv_DW01_add_1'
+  Mapping 'conv_DW01_add_2'
+Module: DW_div_uns_a_width32_b_width3, Ports: 71, Input: 35, Output: 36, Inout: 0
+Module: DW_div_uns_a_width32_b_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW_div_a_width32_b_width3_tc_mode0_rem_mode1, Ports: 71, Input: 35, Output: 36, Inout: 0
+Module: DW_div_a_width32_b_width3_tc_mode0_rem_mode1, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Processing 'conv_DW_div_uns_0'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'DW01_add'
+  Mapping 'conv_DW01_sub_0'
+  Mapping 'conv_DW_cmp_0'
+  Mapping 'conv_DW_cmp_1'
+  Mapping 'conv_DW01_inc_0'
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:02    2284.0      3.56       9.4     251.8                           47907180.0000
+    0:00:02    2284.0      3.56       9.4     251.8                           47907180.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Mapping Optimizations  (Ultra High effort)  (Incremental)
+  -------------------------------
+
+  Beginning Incremental Implementation Selection
+  ----------------------------------------------
+Module: DW_div_uns_a_width32_b_width3, Ports: 71, Input: 35, Output: 36, Inout: 0
+Module: DW_div_uns_a_width32_b_width3, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+Module: DW_div_a_width32_b_width3_tc_mode0_rem_mode1, Ports: 71, Input: 35, Output: 36, Inout: 0
+Module: DW_div_a_width32_b_width3_tc_mode0_rem_mode1, Registers: 0, Async set/reset: 0, Sync set/reset: 0
+  Structuring 'conv_DW_div_uns_1'
+  Mapping 'conv_DW_div_uns_1'
+  Mapping 'conv_DP_OP_11_123_3123_0'
+  Mapping 'conv_DP_OP_11_123_3123_1'
+  Selecting critical implementations
+  Mapping 'conv_DW01_inc_1'
+  Mapping 'conv_DW01_inc_2'
+
+  Beginning Delay Optimization Phase
+  ----------------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:19    3913.8      2.02       7.7     302.1                           74364944.0000
+Information: The register 'q_reg[15]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[14]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[13]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[12]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[11]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[10]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[15]2' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_15_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_15_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[15]3' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[15]4' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[15]5' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_15_reg[0]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_15_reg[1]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[14]2' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_14_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_14_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[14]3' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[14]4' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[14]5' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_14_reg[0]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_14_reg[1]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[13]2' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_13_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_13_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[13]3' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[13]4' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[13]5' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_13_reg[0]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_13_reg[1]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[12]2' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_12_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_12_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[12]3' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[12]4' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[12]5' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_12_reg[0]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_12_reg[1]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[11]2' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_11_reg[0]' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_11_reg[1]' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[11]3' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[11]4' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[11]5' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_11_reg[0]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'hr_11_reg[1]1' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[15]6' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[14]6' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[13]6' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[12]6' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[15]7' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[14]7' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[13]7' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[15]8' is a constant and will be removed. (OPT-1206)
+Information: The register 'q_reg[14]8' is a constant and will be removed. (OPT-1206)
+    0:00:19    3464.5      2.02       7.2     235.4                           64290852.0000
+    0:00:19    3464.5      2.02       7.2     235.4                           64290852.0000
+    0:00:19    3464.5      2.02       7.2     235.4                           64290852.0000
+    0:00:19    3463.5      2.02       2.5     232.2                           64256976.0000
+    0:00:19    3463.5      2.02       2.5     232.2                           64256976.0000
+    0:00:19    3465.0      1.92       2.3     209.1                           64376484.0000
+    0:00:19    3465.0      1.92       2.3     209.1                           64376484.0000
+    0:00:25    3526.5      1.68       2.1     186.7                           67011880.0000
+
+Threshold voltage group cell usage:
+>> saed32cell_svt 100.00%
+
+  Beginning Delay Optimization
+  ----------------------------
+    0:00:25    3526.5      1.68       2.1     186.7                           67011880.0000
+    0:00:31    3526.5      1.68       2.1     186.7                           67011880.0000
+    0:00:31    3526.5      1.68       2.1     186.7                           67011880.0000
+    0:00:36    3526.5      1.68       2.1     186.7                           67011880.0000
+    0:00:36    3526.5      1.68       2.1     186.7                           67011880.0000
+    0:00:37    3595.1      1.68       2.2     186.7                           63737516.0000
+
+
+  Beginning Design Rule Fixing  (max_transition)  (max_capacitance)
+  ----------------------------
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:37    3595.1      1.68       2.2     186.7                           63737516.0000
+    0:00:37    3626.6      1.56       1.9       0.0                           64569452.0000
+    0:00:37    3623.6      1.56       1.9       0.0                           64552228.0000
+    0:00:37    3623.6      1.56       1.9       0.0                           64552228.0000
+    0:00:37    3621.3      1.55       1.9       0.0                           64570216.0000
+    0:00:37    3621.3      1.55       1.9       0.0                           64570216.0000
+    0:00:39    3639.1      1.56       1.9       0.0                           65604208.0000
+    0:00:39    3639.1      1.56       1.9       0.0                           65604208.0000
+    0:00:40    3628.9      1.51       1.8       0.0                           64951284.0000
+    0:00:40    3628.9      1.51       1.8       0.0                           64951284.0000
+    0:00:41    3628.9      1.51       1.8       0.0                           64951284.0000
+    0:00:41    3649.5      1.49       1.8       0.0                           65883428.0000
+    0:00:42    3649.5      1.49       1.8       0.0                           65883428.0000
+    0:00:42    3649.5      1.49       1.8       0.0                           65883428.0000
+    0:00:42    3649.5      1.49       1.8       0.0                           65883428.0000
+    0:00:42    3649.5      1.49       1.8       0.0                           65883428.0000
+    0:00:42    3650.0      1.48       1.8       0.0                           65916516.0000
+    0:00:42    3650.0      1.48       1.8       0.0                           65916516.0000
+    0:00:43    3650.0      1.48       1.8       0.0                           65916516.0000
+    0:00:43    3650.0      1.48       1.8       0.0                           65916516.0000
+    0:00:44    3650.0      1.48       1.8       0.0                           65916516.0000
+    0:00:44    3719.9      1.48       1.8       0.0                           66159408.0000
+
+                                  TOTAL                                                
+   ELAPSED            WORST NEG   SETUP    DESIGN                              LEAKAGE 
+    TIME      AREA      SLACK     COST    RULE COST         ENDPOINT            POWER  
+  --------- --------- --------- --------- --------- ------------------------- ---------
+    0:00:44    4258.6      1.48       1.8       0.0                           66159408.0000
+    0:00:44    4258.6      1.48       1.8       0.0                           66159408.0000
+    0:00:44    4149.0      1.48       1.8       0.0                           62095596.0000
+    0:00:44    4087.6      1.50       1.8       0.0                           58330352.0000
+    0:00:44    4059.1      1.49       1.8       0.0                           58445360.0000
+    0:00:44    4059.1      1.49       1.8       0.0                           58445360.0000
+    0:00:44    4058.8      1.49       1.8       0.0                           58384444.0000
+    0:00:44    4058.8      1.49       1.8       0.0                           58384444.0000
+    0:00:45    4060.4      1.48       1.8       0.0                           58530720.0000
+    0:00:45    4056.6      1.48       1.8       0.0                           58359340.0000
+Loading db file '/usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db'
+
+
+Note: Symbol # after min delay cost means estimated hold TNS across all active scenarios 
+
+
+  Optimization Complete
+  ---------------------
+Information: State dependent leakage is now switched from off to on.
+Information: Propagating switching activity (low effort zero delay simulation). (PWR-6)
+CPU Load: 2%, Ram Free: 229 GB, Swap Free: 3 GB, Work Disk Free: 3811 GB, Tmp Disk Free: 224 GB
+Information: Total number of MV cells in the design.
+----------------------------------------------------------------------------------------------------
+ MV Cells                                           Total Number                                   
+----------------------------------------------------------------------------------------------------
+ Level Shifter:                                     0                                             
+ Enable Level Shifter:                              0                                             
+ Isolation Cell:                                    0                                             
+ Retention Cell:                                    0                                             
+ Retention Clamp Cell:                              0                                             
+ Switch Cell:                                       0                                             
+ Always-On Cell:                                    0                                             
+ Repeater Cell:                                     0                                             
+
+----------------------------------------------------------------------------------------------------
+Unmapped MV Cells 
+----------------------------------------------------------------------------------------------------
+0 Isolation Cells are unmapped 
+0 Retention Clamp Cells are unmapped 
+----------------------------------------------------------------------------------------------------
+1
+# Fix naming and hierarchy for output
+change_names -rules verilog -hierarchy
+Warning: The specified replacement character (_) is conflicting with the specified allowed or restricted character.   (UCN-4)
+1
+# Write synthesized outputs
+write -format ddc -output "${DESIGN_NAME}_synthesized.ddc"
+Writing ddc file 'conv_synthesized.ddc'.
+1
+write -format verilog -output "${DESIGN_NAME}_synthesized.v"
+Writing verilog file '/home/csgrad/nmartinez/sobel-edge-detection/syn/conv_synthesized.v'.
+1
+write_sdc -nosplit "${DESIGN_NAME}_const.sdc"
+1
+write_sdf "${DESIGN_NAME}_const.sdf"
+Information: Annotated 'cell' delays are assumed to include load delay. (UID-282)
+Information: Writing timing information to file '/home/csgrad/nmartinez/sobel-edge-detection/syn/conv_const.sdf'. (WT-3)
+Information: Updating design information... (UID-85)
+1
+# Generate reports
+report_timing -transition_time -nets -attributes > ${HOME}/${DIRECTORY}/syn/reports/${DESIGN_NAME}_timing_reports.log
+report_qor > ${HOME}/${DIRECTORY}/syn/reports/${DESIGN_NAME}_qor_reports.log
+report_area -hierarchy > ${HOME}/${DIRECTORY}/syn/reports/${DESIGN_NAME}_area_reports.log
+report_power -hierarchy > ${HOME}/${DIRECTORY}/syn/reports/${DESIGN_NAME}_power_reports.log
+report_reference -hierarchy > ${HOME}/${DIRECTORY}/syn/reports/${DESIGN_NAME}_reference_reports.log
+# Exit the synthesis tool
+exit
+
+Memory usage for this session 232 Mbytes.
+Memory usage for this session including child processes 232 Mbytes.
+CPU usage for this session 49 seconds ( 0.01 hours ).
+Elapsed time for this session 51 seconds ( 0.01 hours ).
+
+Thank you...
+bender /home/csgrad/nmartinez/sobel-edge-detection/syn $ 

@@ -26,6 +26,15 @@ syn/*_synthesized.v
 syn/*_const.sdc
 syn/*_const.sdf
 syn/reports/
+**sim/*.db
+*.sdb
+*.dat
+*.db.*
+*.dadir
+*.db
+*.so
+*.json
+.version
 
 # Crash dumps
 .bpad/

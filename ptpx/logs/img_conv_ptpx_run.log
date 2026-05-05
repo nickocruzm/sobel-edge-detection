@@ -1,0 +1,69 @@
+Error: Library Compiler executable path is not set. (PT-063)
+
+                                 PrimeTime (R)
+
+              Version V-2023.12-SP5-4 for linux64 - Aug 07, 2025 
+
+                    Copyright (c) 1988 - 2025 Synopsys, Inc.
+   This software and the associated documentation are proprietary to Synopsys,
+ Inc. This software may only be used in accordance with the terms and conditions
+ of a written license agreement with Synopsys, Inc. All other use, reproduction,
+   or distribution of this software is strictly prohibited.  Licensed Products
+     communicate with Synopsys servers for the purpose of providing software
+    updates, detecting software piracy and verifying that customers are using
+    Licensed Products in conformity with the applicable License Key for such
+  Licensed Products. Synopsys will use information gathered in connection with
+    this process to deliver software updates and pursue software pirates and
+                                   infringers.
+
+ Inclusivity & Diversity - Visit SolvNetPlus to read the "Synopsys Statement on
+            Inclusivity and Diversity" (Refer to article 000036315 at
+                        https://solvnetplus.synopsys.com)
+Information: Term was not able to be set up using xterm-256color . Using "xterm" by default instead. (CLE-10)
+# Enable power analysis in PrimeTime
+set power_enable_analysis TRUE
+Information: Checked out license 'PrimePower' (PT-019)
+TRUE
+set target_library "/usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db"
+/usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db
+set link_library [list {*} "/usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db"]
+* /usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db
+read_db $target_library
+Loading db file '/usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db'
+1
+# Read synthesized conv netlist
+read_verilog "../syn/conv_synthesized.v"
+1
+# Set top-level design
+current_design conv
+Information: current_design won't return any data before link (DES-071)
+# 500 MHz clock (2 ns period)
+create_clock -period 2 -name clk [find port clk]
+Loading verilog file '/home/csgrad/nmartinez/sobel-edge-detection/syn/conv_synthesized.v'
+Linking design conv...
+Information: Removing 3 unneeded designs..... (LNK-034)
+Information: 252 (85.71%) library cells are unused in library saed32rvt_tt0p78v25c..... (LNK-045)
+Information: total 252 library cells are unused (LNK-046)
+1
+# Load VCD from image convolution simulation
+# strip_path removes the testbench hierarchy so activity maps to the netlist
+read_vcd -strip_path img_conv_test/uut "../sim/img_conv.vcd"
+Information: Reading file img_conv.vcd to annotate toggle rates on the design...
+Information: Reading vcd file '/home/csgrad/nmartinez/sobel-edge-detection/sim/img_conv.vcd'
+Information: Simulation Start Time : 0.000000 ns, Simulation End Time : 21230.000000 ns, Total Simulation Time : 21230.000000 ns
+
+======================================================================
+Summary:
+Total number of nets = 1232
+Number of annotated nets = 269 (21.83%)
+Total number of leaf cells = 1042
+Number of fully annotated leaf cells = 16 (1.54%)
+======================================================================
+
+Information: Total number of synthesis invariant points = 165 , annotated synthesis invariant points = 143, annotation_ratio = 86.67%
+1
+# Save power reports
+report_power -nosplit -verbose > img_conv_total_power.log
+report_power -cell -verbose > img_conv_cell_power.log
+report_switching_activity -list_not_annotated > img_conv_unannotated.log
+pt_shell> 

@@ -17,6 +17,8 @@ cd sim && ./img_conv_simv
 # 3. Reconstruct the Sobel output image
 python3 sobel_to_img.py sobel_out.txt sobel_result.png
 
+# 4. THIS IS THE WAY:
+wc -l sobel_out.txt && python3 sobel_to_img.py sobel_out.txt sobel_result.png --img-w 34 --img-h 34
 
 ## How to pass an image and test
 

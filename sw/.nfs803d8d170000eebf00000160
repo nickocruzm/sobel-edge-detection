@@ -1,0 +1,27 @@
+import numpy as np
+from PIL import Image
+
+def save_png(txt_file, out_png, width=None):
+    data = np.loadtxt(txt_file).flatten()
+
+    if width is None:
+        # try to infer square (only works if perfect square)
+        size = int(np.sqrt(len(data)))
+        if size * size == len(data):
+            img = data.reshape((size, size))
+        else:
+            raise ValueError(f"Cannot infer shape for {len(data)} elements")
+    else:
+        height = len(data) // width
+        img = data[:height * width].reshape((height, width))
+
+    # normalize
+    img = img - img.min()
+    img = img / (img.max() + 1e-8)
+    img = (img * 255).astype(np.uint8)
+
+    Image.fromarray(img).save(out_png)
+    print(f"Saved {out_png} with shape {img.shape}")
+    
+save_png("sw_output.txt", "sw_output.png", width=30)
+save_png("../sim/hw_output.txt", "hw_output.png", width=30)

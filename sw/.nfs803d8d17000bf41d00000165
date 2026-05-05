@@ -1,0 +1,26 @@
+import numpy as np
+
+# Load the software golden model output
+sw = np.loadtxt("sw_output.txt").flatten()
+
+# Load hardware simulation output (from Verilog DUT)
+hw = np.loadtxt("../sim/hw_output.txt")
+
+min_len = min(len(sw), len(hw))
+
+sw = sw[:min_len]
+hw = hw[:min_len]
+
+# Compute pixel-wise absolute difference
+diff = np.abs(sw - hw)
+
+# Mean Absolute Error
+mae = np.mean(diff)
+
+# Fraction of pixels with error greater than threshold (|diff| > 1)
+error_rate = np.sum(diff > 1) / diff.size
+
+print("SW size:", len(sw))
+print("HW size:", len(hw))
+print("MAE:", mae)
+print("Error rate:", error_rate)

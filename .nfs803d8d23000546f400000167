@@ -8,9 +8,11 @@ UCR, Spring 2026, CS220 Synthesis of Digital Systems
 ## How to pass an image and test
 
 ### Prerequisites
-Install Pillow (Python is already on the remote machine):
+Install required packages(Python is already on the remote machine):
 ```bash
 pip3 install Pillow
+pip3 install numpy
+pip3 install scipy
 ```
 
 ### Step 1 — Convert the image to pixel data
@@ -26,7 +28,6 @@ python3 img_to_binary.py <path_to_image> [output_file]
 python3 img_to_binary.py ../Material/<img_name>.png pixels.txt
 ```
 - Currently only use .png images if you want to add images.
-- 
 
 ### Step 2 — Compile the image convolution testbench
 Still in `sim/`, compile with VCS:
@@ -43,13 +44,19 @@ vcs img_conv_test.v ../rtl/conv.v ../rtl/mac.v ../rtl/register.v ../rtl/shift.v 
 - `valid=1` marks cycles where the output pixel is meaningful (pipeline has filled).
 - A waveform file `img_conv.vcd` is written automatically and can be opened in DVE or GTKWave.
 
-### Step 3.5 — Software Golden Model (Verification) To validate correctness of the Verilog Sobel implementation, a Python-based software golden model is used.
+### Step 3.5 — Software Golden Model (Verification)
+
+To validate correctness of the Verilog Sobel implementation, a Python-based software golden model is used.
 ```bash
 cd sw/
 python3 sobel_ref.py ../Material/001.png
 python3 compare.py
 ```
 
+Conversion of txt back to png is alsoo available through
+```bash
+python3 txt_to_png.py
+```
 
 ### Step 4 — Run PTPX power analysis
 > **Requires synthesis to have been run first** — `syn/conv_synthesized.v` must exist.

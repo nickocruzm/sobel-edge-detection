@@ -1,0 +1,104 @@
+0
+35
++itf+/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/vcsdp_lite.tab
++vcsd1
++vpi
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/usr/local/synopsys/vcs/W-2024.09-SP2-5/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -rdynamic
+-Mobjects= /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libvirsim.so /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/liberrorinf.so /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libsnpsmalloc.so /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libvfs.so
+-Mout=img_conv_simv
+-Msaverestoreobj=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=/usr/local/synopsys/verdi/W-2024.09-SP2-5/share/PLI/VCS/LINUX64/pli.a -ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/usr/local/synopsys/vcs/W-2024.09-SP2-5/include
+-Mxllcflags=
+-P
+-debug_access
+-fsdb
+-full64
+-gen_obj
+-o img_conv_simv
+-picarchive
+/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/bin/vcs1
+img_conv_simv
+/usr/local/synopsys/verdi/W-2024.09-SP2-5/share/PLI/VCS/LINUX64/verdi.tab
+img_conv_test.v
+../rtl/conv.v
+../rtl/mac.v
+../rtl/register.v
+../rtl/shift.v
+49
+which_declare=declare -f
+XDG_SESSION_ID=535
+XDG_RUNTIME_DIR=/run/user/21518
+XDG_DATA_DIRS=/home/cegrad/alai/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+VMR_MODE_FLAG=64
+VERDI_HOME=/usr/local/synopsys/verdi/W-2024.09-SP2-5
+VCS_PYTHON3=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/bin/Python3/bin/python3
+VCS_PATHMAP_PRELOAD_DONE=1
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_INTERNAL_CONVERTEDLIBS=
+VCS_HOME=/usr/local/synopsys/vcs/W-2024.09-SP2-5
+VCS_EXEC_DONE=1
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH=linux64
+UNAME=/bin/uname
+TOOL_HOME=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64
+SYNOPSYS=/usr/local/synopsys
+SSH_TTY=/dev/pts/7
+SSH_CONNECTION=71.95.39.182 51194 169.235.16.45 22
+SSH_CLIENT=71.95.39.182 51194 22
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SNPS_VCS_PYTHON3=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/bin/Python3/bin/python3
+SNPS_VCS_CLANG_PATH=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/clang
+SNPS_INTERNAL_VCS_LINUX_OS=linux
+SNPS_DISABLE_PLATFORM_CHECK=1
+SELINUX_USE_CURRENT_RANGE=
+SELINUX_ROLE_REQUESTED=
+SELINUX_LEVEL_REQUESTED=
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+QUANTUMATK_HOME=/usr/local/synopsys/quantumatk/V-2023.12-SP1
+PT_HOME=/usr/local/synopsys/prime/V-2023.12-SP5-4
+OVA_UUM=0
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LC_ALL=C
+KRB5CCNAME=KCM:
+KDEDIRS=/usr
+HISTCONTROL=ignoredups
+GDK_BACKEND=x11
+EMX_HOME=/usr/local/cadence/EMX20241
+DEBUGINFOD_URLS=https://debuginfod.centos.org/ 
+DC_HOME=/usr/local/synopsys/syn/W-2024.09-SP5-4
+DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-vSvKC8IGKq,guid=7039cde63d3cf685e3c05ffa69f9894c
+CDS_LIC_FILE=5280@cadence.engr.ucr.edu
+CDS_LICENSE_FILE=5280@cadence.engr.ucr.edu
+CDS_INST_DIR=/usr/local/cadence/IC618
+BASH_FUNC_which%%=() {  ( alias;_ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@_}
+0
+0
+7
+1777961530 ../rtl/shift.v
+1777961530 ../rtl/register.v
+1777961530 ../rtl/mac.v
+1777969848 ../rtl/conv.v
+1777969849 img_conv_test.v
+1757588796 /usr/local/synopsys/verdi/W-2024.09-SP2-5/share/PLI/VCS/LINUX64/verdi.tab
+1758337605 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/vcsdp_lite.tab
+4
+1758339832 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libvirsim.so
+1758338532 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/liberrorinf.so
+1758338525 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libsnpsmalloc.so
+1758338521 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libvfs.so
+1777970107 img_conv_simv.daidir
+-1 partitionlib

@@ -5,6 +5,19 @@ UCR, Spring 2026, CS220 Synthesis of Digital Systems
 **Team:** Alice (@alice8625), Sydney (@sydnyepie), Nicko (@nickocruzm)
 
 ---
+
+## Recreate image
+
+# 1. Convert input image to pixels.txt
+python3 sim/img_to_binary.py Material/001.png sim/pixels.txt
+
+# 2. Run simulation (produces sobel_out.txt)
+cd sim && ./img_conv_simv
+
+# 3. Reconstruct the Sobel output image
+python3 sobel_to_img.py sobel_out.txt sobel_result.png
+
+
 ## How to pass an image and test
 
 ### Prerequisites

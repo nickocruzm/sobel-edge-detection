@@ -2,10 +2,15 @@
 
 module img_conv_test;
 
-    // Image dimensions — must match the image fed to img_to_binary.py
-    parameter IMG_W = 32;        // columns
-    parameter IMG_H = 32;        // rows
-    parameter TOTAL  = IMG_W * IMG_H;
+    // Original image dimensions
+    parameter IMG_W = 32;
+    parameter IMG_H = 32;
+
+    // Padded dimensions fed to conv (1 zero pixel per side)
+    parameter PAD_W = IMG_W + 2;
+    parameter PAD_H = IMG_H + 2;
+
+    parameter TOTAL = IMG_W * IMG_H;
 
     // Pixel memory: loaded from binary text file
     reg [7:0] pixel_mem [0:TOTAL-1];
@@ -21,8 +26,8 @@ module img_conv_test;
     wire [15:0] pxl_out;
     wire        valid;
 
-    // Instantiate DUT
-    conv #(.N(IMG_W), .M(IMG_H)) uut (
+    // Conv sees the padded image so valid output is IMG_W x IMG_H
+    conv #(.N(PAD_W), .M(PAD_H)) uut (
         .clk(clk),
         .reset(reset),
         .pxl_in(pxl_in),
@@ -36,34 +41,54 @@ module img_conv_test;
     // 10 ns half-period → 20 ns clock
     always #10 clk = ~clk;
 
-    integer i;
+    integer i, row, col;
+    integer fd;
+
+    // Write pxl_out to file whenever valid is high
+    always @(posedge clk) begin
+        if (valid)
+            $fdisplay(fd, "%0d", pxl_out);
+    end
 
     initial begin
         clk   = 0;
         reset = 1;
         pxl_in = 0;
+        fd = $fopen("sobel_out.txt", "w");
 
-        // Load pixel file produced by img_to_binary.py
         $readmemb("pixels.txt", pixel_mem);
 
         $monitor("t=%0t pxl_in=%0d | pxl_out=%0d valid=%b",
                  $time, pxl_in, pxl_out, valid);
 
-        // Hold reset for two cycles then release
         @(posedge clk); #1;
         @(posedge clk); #1;
         reset = 0;
 
-        // Feed one pixel per clock cycle
-        for (i = 0; i < TOTAL; i = i + 1) begin
-            pxl_in = pixel_mem[i];
-            @(posedge clk); #1;
+        // Top padding row
+        for (i = 0; i < PAD_W; i = i + 1) begin
+            pxl_in = 0; @(posedge clk); #1;
         end
 
-        // Drain pipeline — wait enough cycles for last result to emerge
-        pxl_in = 0;
-        repeat (IMG_W + 4) @(posedge clk);
+        // Each image row with 1 zero of left/right padding
+        for (row = 0; row < IMG_H; row = row + 1) begin
+            pxl_in = 0; @(posedge clk); #1;
+            for (col = 0; col < IMG_W; col = col + 1) begin
+                pxl_in = pixel_mem[row * IMG_W + col];
+                @(posedge clk); #1;
+            end
+            pxl_in = 0; @(posedge clk); #1;
+        end
 
+        // Bottom padding row
+        for (i = 0; i < PAD_W; i = i + 1) begin
+            pxl_in = 0; @(posedge clk); #1;
+        end
+
+        pxl_in = 0;
+        repeat (PAD_W + 4) @(posedge clk);
+
+        $fclose(fd);
         $finish;
     end
 

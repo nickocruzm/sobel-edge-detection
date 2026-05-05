@@ -24,9 +24,9 @@ python3 img_to_binary.py <path_to_image.png> [output_file]
 
 - If the image isn't already 32x32 it will be resized but this will degrade the quality of the image.
 - the image is also converted to grayscale 
+- Each pixel is written as an 8-bit binary string. one per line. (1024 lines total)
 
-
-## 3. — Compile the image convolution testbench
+## 3. Compile the image convolution testbench
 
 Still in `sim/` directory, compile with VCS:
 
@@ -57,17 +57,10 @@ The defaults of 5×5 are just leftover from early development and would only mat
 
 
 
+
 ## Recreate image
 
-### 1. Convert input image to pixels.txt
-python3 sim/img_to_binary.py Material/001.png sim/pixels.txt
-
-### 2. Run simulation (produces sobel_out.txt)
-cd sim && ./img_conv_simv
-
-### 3. Reconstruct the Sobel output image
-python3 sobel_to_img.py sobel_out.txt sobel_result.png --img-w 34 --img-h 34
-
+python3 sobel_to_img.py <pixels>.txt <output>.png --img-w <width> --img-h <height>
 
 # Needs to be improved still
 ---

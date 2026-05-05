@@ -7,10 +7,11 @@ Usage:
 
     sobel_out.txt  — decimal pxl_out values written by img_conv_test.v (one per line)
     output_image   — path for the saved image (default: sobel_result.png)
-    --img-w        — original image width fed into simulation (default: 32)
-    --img-h        — original image height fed into simulation (default: 32)
+    --img-w        — padded image width fed into conv (default: 34, i.e. 32+2)
+    --img-h        — padded image height fed into conv (default: 34, i.e. 32+2)
 
-The output image is (img_h - 2) rows x (img_w - 2) cols (valid region after 3x3 kernel).
+The output image is (img_h - 2) rows x (img_w - 2) cols. Pass the padded
+dimensions (PAD_W x PAD_H) to recover an output the same size as the original image.
 """
 
 import sys
@@ -50,8 +51,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("input", help="sobel_out.txt from simulation")
     parser.add_argument("output", nargs="?", default="sobel_result.png")
-    parser.add_argument("--img-w", type=int, default=32)
-    parser.add_argument("--img-h", type=int, default=32)
+    parser.add_argument("--img-w", type=int, default=34)
+    parser.add_argument("--img-h", type=int, default=34)
     args = parser.parse_args()
 
     sobel_to_img(args.input, args.output, args.img_w, args.img_h)

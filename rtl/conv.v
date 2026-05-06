@@ -69,7 +69,7 @@ module conv(
 
 	// Valid bit logic
 
-	reg [8:0] counter = 0;
+	reg [10:0] counter = 0;
 	reg temp = 0;
 
 	always @(posedge clk) begin

@@ -1,0 +1,121 @@
+$date
+	Tue May  5 20:37:07 2026
+$end
+
+$version
+	Synopsys VCS version W-2024.09-SP2-5_Full64
+$end
+
+$timescale
+	1ps
+$end
+
+$comment Csum: 1 39d3ae99ab7dcd69 $end
+
+
+$scope module shift_testbench $end
+$var reg 1 ! clk $end
+$var reg 16 " data_in [15:0] $end
+$var wire 1 # data_out [15] $end
+$var wire 1 $ data_out [14] $end
+$var wire 1 % data_out [13] $end
+$var wire 1 & data_out [12] $end
+$var wire 1 ' data_out [11] $end
+$var wire 1 ( data_out [10] $end
+$var wire 1 ) data_out [9] $end
+$var wire 1 * data_out [8] $end
+$var wire 1 + data_out [7] $end
+$var wire 1 , data_out [6] $end
+$var wire 1 - data_out [5] $end
+$var wire 1 . data_out [4] $end
+$var wire 1 / data_out [3] $end
+$var wire 1 0 data_out [2] $end
+$var wire 1 1 data_out [1] $end
+$var wire 1 2 data_out [0] $end
+
+$scope module uut $end
+$var wire 1 ! clk $end
+$var wire 16 " data_in [15:0] $end
+$var wire 1 # data_out [15] $end
+$var wire 1 $ data_out [14] $end
+$var wire 1 % data_out [13] $end
+$var wire 1 & data_out [12] $end
+$var wire 1 ' data_out [11] $end
+$var wire 1 ( data_out [10] $end
+$var wire 1 ) data_out [9] $end
+$var wire 1 * data_out [8] $end
+$var wire 1 + data_out [7] $end
+$var wire 1 , data_out [6] $end
+$var wire 1 - data_out [5] $end
+$var wire 1 . data_out [4] $end
+$var wire 1 / data_out [3] $end
+$var wire 1 0 data_out [2] $end
+$var wire 1 1 data_out [1] $end
+$var wire 1 2 data_out [0] $end
+$var reg 2 3 hr_0 [1:0] $end
+$var reg 2 4 hr_1 [1:0] $end
+$var reg 2 5 hr_2 [1:0] $end
+$var reg 2 6 hr_3 [1:0] $end
+$var reg 2 7 hr_4 [1:0] $end
+$var reg 2 8 hr_5 [1:0] $end
+$var reg 2 9 hr_6 [1:0] $end
+$var reg 2 : hr_7 [1:0] $end
+$var reg 2 ; hr_8 [1:0] $end
+$var reg 2 < hr_9 [1:0] $end
+$var reg 2 = hr_10 [1:0] $end
+$var reg 2 > hr_11 [1:0] $end
+$var reg 2 ? hr_12 [1:0] $end
+$var reg 2 @ hr_13 [1:0] $end
+$var reg 2 A hr_14 [1:0] $end
+$var reg 2 B hr_15 [1:0] $end
+$upscope $end
+
+$upscope $end
+
+$enddefinitions $end
+
+#0
+$dumpvars
+0!
+x2
+x(
+x'
+x&
+x%
+x$
+x#
+x1
+x0
+x/
+x.
+x-
+x,
+x+
+x*
+x)
+b0000000001100100 "
+bxx 3
+bxx 4
+bxx =
+bxx >
+bxx ?
+bxx @
+bxx A
+bxx B
+bxx 5
+bxx 6
+bxx 7
+bxx 8
+bxx 9
+bxx :
+bxx ;
+bxx <
+$end
+#100000
+b0000000000001010 "
+#140000
+b0000000000011110 "
+#180000
+b0000000000010101 "
+#220000
+b0000000001101110 "

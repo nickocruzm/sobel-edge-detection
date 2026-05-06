@@ -1,12 +1,20 @@
 # Change the following to your home directory
+set HOME      "/home/csgrad/shilt003"
 #set HOME      "/home/csgrad/nmartinez"
-set HOME      "/home/csgrad/nmartinez"
 set DIRECTORY   "sobel-edge-detection"
 
-# Set search and library paths
+# Set search and library paths + RBVT
 set_app_var search_path ${HOME}/${DIRECTORY}/rtl
-set_app_var link_path /usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db
-set_app_var target_library /usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db
+#set_app_var link_path /usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db
+#set_app_var target_library /usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db
+
+#Search and lib path LVT - BEST SLACK
+set_app_var link_path /usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p75v125c.db
+set_app_var target_library /usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p75v125c.db
+
+#Search and lib path HVT - WORST VIOLATED SLACK
+#set_app_var link_path /usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75v125c.db
+#set_app_var target_library /usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_hvt/db_nldm/saed32hvt_ss0p75v125c.db
 
 # Power grid settings
 set dc_allow_rtl_pg       true
@@ -30,7 +38,15 @@ ungroup -all -flatten -simple_names
 
 # Constraints
 # Clock definition: 2 ns period (500 MHz), 50% duty cycle
-create_clock -name "clk" -period 2 -waveform {0 1} [get_ports "clk"]
+#create_clock -name "clk" -period 2 -waveform {0 1} [get_ports "clk"]
+#set_dont_touch_network [get_clocks "clk"]
+
+# Clock definition: 4 ns period (250 MHz), 50% duty cycle
+#create_clock -name "clk" -period 4 -waveform {0 1} [get_ports "clk"]
+#set_dont_touch_network [get_clocks "clk"]
+
+# Clock definition: 3 ns period (333.333 MHz), 50% duty cycle
+create_clock -name "clk" -period 3 -waveform {0 1} [get_ports "clk"]
 set_dont_touch_network [get_clocks "clk"]
 
 # Input and output delays relative to clock

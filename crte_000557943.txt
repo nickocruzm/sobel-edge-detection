@@ -1,0 +1,655 @@
+CRTE_SNAPSHOT_START
+
+SECTION_CRTE_VERSION
+3.0
+
+SECTION_PID
+557943
+
+SECTION_POLLING_INTERVAL
+5
+
+SECTION_DATE_TIME
+Wed May 06 19:56:35 PDT 2026 (1778122595)
+
+SECTION_OS_VERSION
+osname: Linux
+hostname: bender.engr.ucr.edu
+arch: x86_64
+release_version: 4.18.0-553.115.1.el8_10.x86_64
+
+SECTION_IPC_INFO
+
+------ Message Queues --------
+key        msqid      owner      perms      used-bytes   messages    
+
+------ Shared Memory Segments --------
+key        shmid      owner      perms      bytes      nattch     status      
+0x00000000 41         vvada002   600        393216     2          dest         
+0x00000000 42         vvada002   600        524288     2          dest         
+0x00000000 45         vvada002   600        524288     2          dest         
+0x00000000 46         vvada002   600        393216     2          dest         
+
+------ Semaphore Arrays --------
+key        semid      owner      perms      nsems     
+
+
+SECTION_ULIMIT
+core file size          (blocks, -c) 0
+data seg size           (kbytes, -d) unlimited
+scheduling priority             (-e) 0
+file size               (blocks, -f) unlimited
+pending signals                 (-i) 1027914
+max locked memory       (kbytes, -l) 64
+max memory size         (kbytes, -m) unlimited
+open files                      (-n) 262144
+pipe size            (512 bytes, -p) 8
+POSIX message queues     (bytes, -q) 819200
+real-time priority              (-r) 0
+stack size              (kbytes, -s) 8192
+cpu time               (seconds, -t) unlimited
+max user processes              (-u) 1027914
+virtual memory          (kbytes, -v) unlimited
+file locks                      (-x) unlimited
+
+SECTION_SYSCONF
+_SC_THREAD_SAFE_FUNCTIONS= 200809
+_SC_CLK_TCK= 100
+_SC_OPEN_MAX= 262144
+_SC_PAGE_SIZE= 4096
+_SC_ARG_MAX= 2097152
+_SC_CHILD_MAX= 1027914
+_SC_LINE_MAX= 2048
+
+SECTION_FULL_COMMAND
+/usr/local/synopsys/prime/V-2023.12-SP5-4/linux64/syn/bin/pt_shell_exec -root_path /usr/local/synopsys/prime/V-2023.12-SP5-4 -shell Timing -f ptpx.tcl
+
+SECTION_CPUINFO
+total_core: 40
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 1000
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 3087
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 3089
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 3089
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 3051
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+model_name:  Intel(R) Xeon(R) Gold 5215 CPU @ 2.50GHz
+flags:  fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc art arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc cpuid aperfmperf pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 sdbg fma cx16 xtpr pdcm pcid dca sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm 3dnowprefetch cpuid_fault epb cat_l3 cdp_l3 invpcid_single intel_ppin ssbd mba ibrs ibpb stibp ibrs_enhanced tpr_shadow vnmi flexpriority ept vpid ept_ad fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid cqm mpx rdt_a avx512f avx512dq rdseed adx smap clflushopt clwb intel_pt avx512cd avx512bw avx512vl xsaveopt xsavec xgetbv1 xsaves cqm_llc cqm_occup_llc cqm_mbm_total cqm_mbm_local dtherm ida arat pln pts pku ospke avx512_vnni md_clear flush_l1d arch_capabilities
+cpu_family: 6
+core_frequency_mhz: 2500
+core_per_socket: 0
+stepping: 7
+cache_size_kb: 14080
+ht: 0
+
+SECTION_OS_RELEASE_VERSION
+Rocky Linux release 8.10 (Green Obsidian)
+
+
+SECTION_SYS/VM
+/proc/sys/vm/admin_reserve_kbytes:8192
+/proc/sys/vm/block_dump:0
+/proc/sys/vm/compact_unevictable_allowed:1
+/proc/sys/vm/compaction_proactiveness:0
+/proc/sys/vm/dirty_background_bytes:0
+/proc/sys/vm/dirty_background_ratio:10
+/proc/sys/vm/dirty_bytes:0
+/proc/sys/vm/dirty_expire_centisecs:3000
+/proc/sys/vm/dirty_ratio:40
+/proc/sys/vm/dirty_writeback_centisecs:500
+/proc/sys/vm/dirtytime_expire_seconds:43200
+/proc/sys/vm/drop_caches:0
+/proc/sys/vm/extfrag_threshold:500
+/proc/sys/vm/force_cgroup_v2_swappiness:0
+/proc/sys/vm/hugetlb_shm_group:0
+/proc/sys/vm/laptop_mode:0
+/proc/sys/vm/legacy_va_layout:0
+/proc/sys/vm/legacy_willneed_readahead:0
+/proc/sys/vm/lowmem_reserve_ratio:256	256	32	0	0
+/proc/sys/vm/max_map_count:65530
+/proc/sys/vm/memory_failure_early_kill:0
+/proc/sys/vm/memory_failure_recovery:1
+/proc/sys/vm/min_free_kbytes:90112
+/proc/sys/vm/min_slab_ratio:5
+/proc/sys/vm/min_unmapped_ratio:1
+/proc/sys/vm/mmap_min_addr:4096
+/proc/sys/vm/nr_hugepages:0
+/proc/sys/vm/nr_hugepages_mempolicy:0
+/proc/sys/vm/nr_overcommit_hugepages:0
+/proc/sys/vm/numa_stat:1
+/proc/sys/vm/numa_zonelist_order:Node
+/proc/sys/vm/oom_dump_tasks:1
+/proc/sys/vm/oom_kill_allocating_task:0
+/proc/sys/vm/overcommit_kbytes:0
+/proc/sys/vm/overcommit_memory:0
+/proc/sys/vm/overcommit_ratio:50
+/proc/sys/vm/page-cluster:3
+/proc/sys/vm/page_lock_unfairness:5
+/proc/sys/vm/panic_on_oom:0
+/proc/sys/vm/percpu_pagelist_fraction:0
+/proc/sys/vm/stat_interval:1
+/proc/sys/vm/swappiness:10
+/proc/sys/vm/user_reserve_kbytes:131072
+/proc/sys/vm/vfs_cache_pressure:100
+/proc/sys/vm/watermark_boost_factor:15000
+/proc/sys/vm/watermark_scale_factor:10
+/proc/sys/vm/zone_reclaim_mode:0
+
+
+SECTION_SWAP
+swap_partition: /dev/md125
+size_gb: 3
+
+CRTE_SNAPSHOT_END
+
+CRTE_PERIODIC_START 1 1778122595552
+
+SECTION_MPSTAT
+total_core: 40
+
+CPU     %user   %kernel %wait   %idle   
+all   2.202686 0.469967 0.015597 97.311752
+0     4.870100 1.021472 0.028733 94.079697
+1     2.346038 0.761363 0.022398 96.870201
+2     3.498029 0.726217 0.026936 95.748817
+3     1.891467 0.585796 0.019180 97.503563
+4     3.762711 0.633314 0.022584 95.581390
+5     1.347744 0.523736 0.017847 98.110672
+6     3.292048 0.544922 0.023098 96.139938
+7     0.817197 0.499269 0.014097 98.669441
+8     4.639812 0.489097 0.021276 94.849815
+9     0.731844 0.472045 0.015940 98.780167
+10     2.875035 0.459315 0.020026 96.645622
+11     1.086218 0.461551 0.014243 98.437981
+12     3.366347 0.426091 0.016178 96.191383
+13     1.504117 0.420773 0.012317 98.062798
+14     2.465889 0.438904 0.019644 97.075562
+15     1.532337 0.413068 0.010962 98.043633
+16     4.140677 0.426392 0.015418 95.417519
+17     1.197627 0.415877 0.012412 98.374084
+18     1.531825 0.404207 0.020450 98.043518
+19     0.315630 0.288752 0.013783 99.381828
+20     0.595920 0.398527 0.013537 98.992004
+21     0.539020 0.450970 0.010694 98.999313
+22     0.926692 0.509368 0.013122 98.550819
+23     0.691354 0.404137 0.010126 98.894386
+24     3.453884 0.490063 0.014982 96.041069
+25     2.197829 0.403041 0.011002 97.388130
+26     3.418944 0.484784 0.013372 96.082893
+27     0.443977 0.400662 0.010948 99.144417
+28     5.565002 0.428257 0.017141 93.989594
+29     0.808643 0.388309 0.009731 98.793320
+30     3.890356 0.503381 0.013526 95.592735
+31     1.131299 0.380762 0.009441 98.478493
+32     3.740382 0.410289 0.015414 95.833908
+33     1.516791 0.370137 0.011253 98.101814
+34     2.932910 0.423501 0.016838 96.626747
+35     1.704352 0.365835 0.008620 97.921196
+36     3.794268 0.442876 0.014819 95.748039
+37     1.420065 0.352970 0.009153 98.217819
+38     0.881201 0.380041 0.021292 98.717468
+39     1.244880 0.399157 0.011322 98.344643
+SECTION_LOADAVG
+4.81 4.19 4.06 6/2467 558794
+
+SECTION_PID_STATUS
+name: pt_shell_exec
+state: 1
+vmsize: 2713000
+vmrss: 870944
+vmdata: 1107096
+vmstk: 132
+vmexe: 589668
+vmlib: 268320
+threads: 25
+
+SECTION_PROCESS_CPU_UTIL
+pid: 557943
+cpu_total_time: 2137216215
+cpu_used_time: 35365
+cpu_p: 
+
+SECTION_SYSTEM_CPU_UTIL
+sys_cpu_p: 
+
+SECTION_MEMINFO
+memtotal: 263206724
+memfree: 181314184
+cached: 42220220
+swapcached: 0
+active: 14058020
+swaptotal: 4193276
+swapfree: 4193276
+
+SECTION_SMAPS
+shared_kb: 484080
+private_kb: 386872
+
+SECTION_DF
+Filesystem  Size  Used Avail Use%
+filesystem        888G  664G  223G    75
+
+Filesystem    Inodes   IUsed   IFree   IUse%
+filesystem          465847808  5475794 460372014   4294966833
+
+SECTION_CWD
+Filesystem  Size  Used Avail Use%
+filesystem        6745G  2956G  3789G    44
+
+Filesystem    Inodes   IUsed   IFree   IUse%
+filesystem          666138860  14399162 651739698   48
+
+SECTION_DF
+Filesystem  Size  Used Avail Use%
+filesystem        888G  664G  223G    75
+
+Filesystem    Inodes   IUsed   IFree   IUse%
+filesystem          465847808  5475794 460372014   4294966833
+
+SECTION_SWAP_RATE
+blk_read: 7552
+blk_wrtn: 0
+swap_in_rate: 
+swap_out_rate: 
+swap_in_rate: 
+swap_out_rate: 
+
+SECTION_FD_SIZE
+files: 34
+total_size: 9331860
+
+SECTION_NET_INTERFACE
+total_eth_avbl: 5
+
+name net_rx_err net_rx_drp net_tx_err net_tx_drp 
+    lo:         0        0        0        0
+eno1np0:         0        71239        0        0
+eno2np1:               0        0        0        0
+ens4f0np0:               0        0        0        0
+ens4f1np1:               0        0        0        0
+
+SECTION_NFSSTAT
+readlink: 0
+write: 2
+getattr: 92
+retrans: 0
+raw_data: 
+net 0 0 0 0
+rpc 71010783 0 71147276
+proc3 22 1 65854221 1085882 561871 473971 1514 576166 1961436 188424 35857 1154 7 106469 22803 21280 5439 3417 124741 3632 2224 1112 0
+proc4 67 3168 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+
+
+SECTION_THREAD_CPU_UTIL
+557943 : 557943 (pt_shell_exec) R 1 557929 549271 0 -1 4194304 33300 220977 1 0 454 34 1083 311 20 0 25 0 53444371 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 0 2097152 1267367679 0 0 0 17 3 0 0 1 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+557947 : 557947 (jemalloc_bg_thd) S 1 557929 549271 0 -1 1077936192 2 220977 0 0 0 0 1083 311 20 0 25 0 53444406 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 2147221247 2097152 1267367679 0 0 0 -1 26 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+557952 : 557952 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 2 220977 0 0 0 0 1083 311 20 0 25 0 53444420 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 0 2097152 1267367679 0 0 0 -1 13 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558036 : 558036 (pt_shell_exec) S 1 557929 549271 0 -1 4194368 7 220977 0 0 0 0 1083 311 20 0 25 0 53444708 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 2147221247 2097152 1267367679 0 0 0 -1 5 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558037 : 558037 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 5 220977 0 0 0 0 1083 311 20 0 25 0 53444715 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 9 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558038 : 558038 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 2 220977 0 0 0 0 1083 311 20 0 25 0 53444715 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 3 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558039 : 558039 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 1 220977 0 0 0 0 1083 311 20 0 25 0 53444715 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 5 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558040 : 558040 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 0 220977 0 0 0 0 1083 311 20 0 25 0 53444715 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 29 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558041 : 558041 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 0 220977 0 0 0 0 1083 311 20 0 25 0 53444715 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 15 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558042 : 558042 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 1 220977 0 0 0 0 1083 311 20 0 25 0 53444715 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 21 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558043 : 558043 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 0 220977 0 0 0 0 1083 311 20 0 25 0 53444715 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 9 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558044 : 558044 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 1 220977 0 0 0 0 1083 311 20 0 25 0 53444715 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 23 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558045 : 558045 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 0 220977 0 0 0 0 1083 311 20 0 25 0 53444715 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 9 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558046 : 558046 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 0 220977 0 0 0 0 1083 311 20 0 25 0 53444715 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 5 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558047 : 558047 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 2 220977 0 0 0 0 1083 311 20 0 25 0 53444715 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 19 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558048 : 558048 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 0 220977 0 0 0 0 1083 311 20 0 25 0 53444715 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 17 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558049 : 558049 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 1 220977 0 0 0 0 1083 311 20 0 25 0 53444715 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 37 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558050 : 558050 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 0 220977 0 0 0 0 1083 311 20 0 25 0 53444720 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 35 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558059 : 558059 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 0 220977 0 0 0 0 1083 311 20 0 25 0 53444737 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 1 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558060 : 558060 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 1 220977 0 0 0 0 1083 311 20 0 25 0 53444737 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 39 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558061 : 558061 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 1 220977 0 0 0 0 1083 311 20 0 25 0 53444737 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 9 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558062 : 558062 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 1 220977 0 0 0 0 1083 311 20 0 25 0 53444737 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 13 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558063 : 558063 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 2 220977 0 0 1 9 1083 311 20 0 25 0 53444769 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 27 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558064 : 558064 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 0 220977 0 0 1 9 1083 311 20 0 25 0 53444769 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 33 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+558065 : 558065 (pt_shell_exec) S 1 557929 549271 0 -1 1077936192 1 220977 0 0 1 9 1083 311 20 0 25 0 53444769 2778112000 217736 18446744073709551615 2097152 605916048 140720930535584 0 0 0 8192 2097152 1267367679 0 0 0 -1 3 0 0 0 0 0 607314496 631767616 753823744 140720930541792 140720930541943 140720930541943 140720930545584 0
+
+CRTE_PERIODIC_END 1 1778122595552

@@ -35,11 +35,17 @@ img_conv_test.v
 ../rtl/mac.v
 ../rtl/register.v
 ../rtl/shift.v
-49
+58
 which_declare=declare -f
-XDG_SESSION_ID=858
-XDG_RUNTIME_DIR=/run/user/21518
-XDG_DATA_DIRS=/home/cegrad/alai/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+XDG_SESSION_ID=975
+XDG_RUNTIME_DIR=/run/user/21633
+XDG_DATA_DIRS=/home/csgrad/nmartinez/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+VSCODE_PYTHON_AUTOACTIVATE_GUARD=1
+VSCODE_IPC_HOOK_CLI=/run/user/21633/vscode-ipc-60d81f70-6750-4d95-8192-c50c1817bace.sock
+VSCODE_GIT_IPC_HANDLE=/run/user/21633/vscode-git-2e4c272737.sock
+VSCODE_GIT_ASKPASS_NODE=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-8b640eef5a6c6089c029249d48efa5c99adf7d51/server/node
+VSCODE_GIT_ASKPASS_MAIN=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-8b640eef5a6c6089c029249d48efa5c99adf7d51/server/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=
 VMR_MODE_FLAG=64
 VERDI_HOME=/usr/local/synopsys/verdi/W-2024.09-SP2-5
 VCS_PYTHON3=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/bin/Python3/bin/python3
@@ -54,10 +60,11 @@ VCS_ARG_ADDED_FOR_TMP=1
 VCS_ARCH=linux64
 UNAME=/bin/uname
 TOOL_HOME=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64
+TERM_PROGRAM_VERSION=1.119.0
+TERM_PROGRAM=vscode
 SYNOPSYS=/usr/local/synopsys
-SSH_TTY=/dev/pts/26
-SSH_CONNECTION=71.95.39.182 57309 169.235.16.45 22
-SSH_CLIENT=71.95.39.182 57309 22
+SSH_CONNECTION=10.13.177.61 54235 169.235.16.45 22
+SSH_CLIENT=10.13.177.61 54235 22
 SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
 SNPS_VCS_PYTHON3=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/bin/Python3/bin/python3
 SNPS_VCS_CLANG_PATH=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/clang
@@ -76,11 +83,13 @@ LC_ALL=C
 KRB5CCNAME=KCM:
 KDEDIRS=/usr
 HISTCONTROL=ignoredups
-GDK_BACKEND=x11
+GIT_ASKPASS=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-8b640eef5a6c6089c029249d48efa5c99adf7d51/server/extensions/git/dist/askpass.sh
 EMX_HOME=/usr/local/cadence/EMX20241
 DEBUGINFOD_URLS=https://debuginfod.centos.org/ 
 DC_HOME=/usr/local/synopsys/syn/W-2024.09-SP5-4
-DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-Ecob4unULO,guid=4983cf07ed05ca730418b08f69fad2df
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/21633/bus
+COLORTERM=truecolor
+CLAUDE_CODE_SSE_PORT=39732
 CDS_LIC_FILE=5280@cadence.engr.ucr.edu
 CDS_LICENSE_FILE=5280@cadence.engr.ucr.edu
 CDS_INST_DIR=/usr/local/cadence/IC618
@@ -88,11 +97,11 @@ BASH_FUNC_which%%=() {  ( alias;_ eval ${which_declare} ) | /usr/bin/which --tty
 0
 0
 7
-1777961530 ../rtl/shift.v
-1777961530 ../rtl/register.v
-1777961530 ../rtl/mac.v
-1778045716 ../rtl/conv.v
-1778037832 img_conv_test.v
+1777678190 ../rtl/shift.v
+1777678190 ../rtl/register.v
+1777678190 ../rtl/mac.v
+1778037491 ../rtl/conv.v
+1778037491 img_conv_test.v
 1757588796 /usr/local/synopsys/verdi/W-2024.09-SP2-5/share/PLI/VCS/LINUX64/verdi.tab
 1758337605 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/vcsdp_lite.tab
 4
@@ -100,5 +109,5 @@ BASH_FUNC_which%%=() {  ( alias;_ eval ${which_declare} ) | /usr/bin/which --tty
 1758338532 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/liberrorinf.so
 1758338525 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libsnpsmalloc.so
 1758338521 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libvfs.so
-1778045751 img_conv_simv.daidir
+1778113592 img_conv_simv.daidir
 -1 partitionlib

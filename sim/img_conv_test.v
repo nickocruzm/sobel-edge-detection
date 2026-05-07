@@ -38,8 +38,8 @@ module img_conv_test;
         .valid(valid)
     );
 
-    // 10 ns half-period → 20 ns clock
-    always #10 clk = ~clk;
+    // 1.5 ns half-period → 3 ns clock (333 MHz)
+    always #1.5 clk = ~clk;
 
     integer i, row, col;
     integer fd;
@@ -61,28 +61,28 @@ module img_conv_test;
         $monitor("t=%0t pxl_in=%0d | pxl_out=%0d valid=%b",
                  $time, pxl_in, pxl_out, valid);
 
-        @(posedge clk); #1;
-        @(posedge clk); #1;
+        @(posedge clk); #0.1;
+        @(posedge clk); #0.1;
         reset = 0;
 
         // Top padding row
         for (i = 0; i < PAD_W; i = i + 1) begin
-            pxl_in = 0; @(posedge clk); #1;
+            pxl_in = 0; @(posedge clk); #0.1;
         end
 
         // Each image row with 1 zero of left/right padding
         for (row = 0; row < IMG_H; row = row + 1) begin
-            pxl_in = 0; @(posedge clk); #1;
+            pxl_in = 0; @(posedge clk); #0.1;
             for (col = 0; col < IMG_W; col = col + 1) begin
                 pxl_in = pixel_mem[row * IMG_W + col];
-                @(posedge clk); #1;
+                @(posedge clk); #0.1;
             end
-            pxl_in = 0; @(posedge clk); #1;
+            pxl_in = 0; @(posedge clk); #0.1;
         end
 
         // Bottom padding row
         for (i = 0; i < PAD_W; i = i + 1) begin
-            pxl_in = 0; @(posedge clk); #1;
+            pxl_in = 0; @(posedge clk); #0.1;
         end
 
         pxl_in = 0;

@@ -1,7 +1,7 @@
 # Enable power analysis in PrimeTime
 set power_enable_analysis TRUE
 
-set target_library "/usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_rvt/db_nldm/saed32rvt_tt0p78v25c.db"
+set target_library "/usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_lvt/db_nldm/saed32lvt_ss0p75v125c.db"
 set link_library [list {*} $target_library]
 read_db $target_library
 
@@ -18,7 +18,7 @@ file mkdir reports
 foreach run $runs {
     lassign $run design strip vcd prefix
     current_design $design
-    create_clock -period 2 -name clk [find port clk]
+    create_clock -period 3 -name clk [find port clk]
     read_vcd -strip_path $strip $vcd
     report_power -nosplit -verbose                 > reports/${prefix}_total_power.rpt
     report_power -cell    -verbose                 > reports/${prefix}_cell_power.rpt

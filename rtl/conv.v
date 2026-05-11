@@ -8,8 +8,7 @@ module conv(
 	output [15:0] reg_00, output [15:0] reg_01, output [15:0] reg_02, output[15:0] sr_0, 	
 	output [15:0] reg_10, output [15:0] reg_11, output [15:0] reg_12, output[15:0] sr_1, 
 	output [15:0] reg_20, output [15:0] reg_21, output [15:0] reg_22, 
-    	output [15:0] pxl_out,
-		
+	output signed [15:0] pxl_out,	
 	output valid
     );
 
@@ -19,17 +18,19 @@ module conv(
 	parameter K = 3; 	//Kernel size
 
 	// Intermediate wires
-	wire [15:0] wire_00; wire [15:0] wire_01; wire [15:0] wire_02;
-	wire [15:0] wire_10; wire [15:0] wire_11; wire [15:0] wire_12;
-	wire [15:0] wire_20; wire [15:0] wire_21; wire [15:0] wire_22;
+	wire signed [15:0] wire_00; wire signed [15:0] wire_01; wire signed [15:0] wire_02;
+	wire signed [15:0] wire_10; wire signed [15:0] wire_11; wire signed [15:0] wire_12;
+	wire signed [15:0] wire_20; wire signed [15:0] wire_21; wire signed [15:0] wire_22;
+
 
 	// 3*3 kernel
-	wire [7:0] kernel_00; wire [7:0] kernel_01; wire [7:0] kernel_02;
-	wire [7:0] kernel_10; wire [7:0] kernel_11; wire [7:0] kernel_12;
-	wire [7:0] kernel_20; wire [7:0] kernel_21; wire [7:0] kernel_22;
+	wire signed [7:0] kernel_00; wire signed [7:0] kernel_01; wire signed [7:0] kernel_02;
+	wire signed [7:0] kernel_10; wire signed [7:0] kernel_11; wire signed [7:0] kernel_12;
+	wire signed [7:0] kernel_20; wire signed [7:0] kernel_21; wire signed [7:0] kernel_22;
+
 	assign kernel_00 = 1; assign kernel_01 = 2; assign kernel_02 = 1;
 	assign kernel_10 = 0; assign kernel_11 = 0; assign kernel_12 = 0;
-	assign kernel_20 = 1; assign kernel_21 = 2; assign kernel_22 = 1;
+	assign kernel_20 = -1; assign kernel_21 = -2; assign kernel_22 = -1;
 
 	// Row : 1
 	mac mac_00(pxl_in, kernel_00, 0, wire_00);

@@ -1,16 +1,24 @@
 `timescale 1ns / 1ps
+/*
 
+Inputs clock, reset, pixel_in
+
+13 Ouputs
+
+*/
 module conv(
-    	input clk,
-    	input reset,
-    	input [7:0] pxl_in,
+    input clk,
+    input reset,
+    input [7:0] pxl_in,
 			
 	output signed [15:0] reg_00, output signed [15:0] reg_01, output signed [15:0] reg_02, output signed [15:0] sr_0,
 	output signed [15:0] reg_10, output signed [15:0] reg_11, output signed [15:0] reg_12, output signed [15:0] sr_1,
 	output signed [15:0] reg_20, output signed [15:0] reg_21, output signed [15:0] reg_22,
 	output signed [15:0] pxl_out,	
 	output valid
-    );
+);
+
+// MODULE BODY
 
 	//Define constants
 	parameter N = 5;	//Image columns
@@ -67,7 +75,7 @@ module conv(
 
 	mac mac_22(pxl_in, K_22, reg_21, wire_22);
 	register r_22(clk, reset, wire_22, reg_22);
-	
+
 	assign pxl_out = reg_22;	
 
 	// Valid bit logic
@@ -76,10 +84,10 @@ module conv(
 	reg temp = 0;
 
 	always @(posedge clk) begin
-		counter = counter + 1;
-	
+		counter <= counter + 1;
+
 		// The logic below needs some revisiting to scale properly
-		if (counter > ((K-1)*N + (K-1)) && counter < (M*N) + (K-1)) begin
+		if (counter >= ((K-1)*N + (K-1)) && counter < (M*N) + (K-1)) begin
 			if ((counter - (K-1)) % N > 1) begin
 				temp <= 1;
 				end
@@ -89,7 +97,7 @@ module conv(
 		else
 			temp <= 0; 
 			end
-				 
+					
 	assign valid = temp;
 
 	always @(posedge clk) begin

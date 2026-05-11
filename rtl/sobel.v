@@ -1,5 +1,12 @@
 `timescale 1ns / 1ps
+/*
 
+- Instantiates conv_gx with the Gx kernel (-1 0 1 / -2 0 2 / -1 0 1)
+- Instantiates conv_gy with the Gy kernel (1 2 1 / 0 0 0 / -1 -2 -1)
+- Both receive the same pxl_in stream
+- magnitude = |Gx| + |Gy| — the cheap L1-norm approximation of edge strength
+- valid is taken from conv_gx (both instances have identical timing)
+*/
 module sobel(
     input clk,
     input reset,

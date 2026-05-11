@@ -22,6 +22,13 @@ module conv(
 	parameter signed [7:0] K_10 = 0,  K_11 = 0,  K_12 = 0;
 	parameter signed [7:0] K_20 = -1, K_21 = -2, K_22 = -1;
 
+	initial begin
+		$display("[%m] Kernel:");
+		$display("  %0d  %0d  %0d", K_00, K_01, K_02);
+		$display("  %0d  %0d  %0d", K_10, K_11, K_12);
+		$display("  %0d  %0d  %0d", K_20, K_21, K_22);
+	end
+
 	// Intermediate wires
 	wire signed [15:0] wire_00; wire signed [15:0] wire_01; wire signed [15:0] wire_02;
 	wire signed [15:0] wire_10; wire signed [15:0] wire_11; wire signed [15:0] wire_12;
@@ -84,5 +91,10 @@ module conv(
 			end
 				 
 	assign valid = temp;
+
+	always @(posedge clk) begin
+		if (valid)
+			$display("[%m] pxl_in = %0d, pxl_out = %0d", pxl_in, pxl_out);
+	end
 
 endmodule

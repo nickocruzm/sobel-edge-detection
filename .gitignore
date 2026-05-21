@@ -1,3 +1,6 @@
+# Generated subdirectories (sim, ptpx, syn, sw)
+*/generated/
+
 # Xcelium simulation artifacts
 sim/xcelium.d/
 sim/*.log
@@ -7,11 +10,26 @@ sim/*.fsdb
 sim/novas.*
 sim/verdiLog/
 
-# VCS simulation artifacts
+# VCS simulation artifacts (legacy – now go to build/)
 sim/simv
 sim/simv.daidir/
 sim/csrc/
 sim/ucli.key
+sim/*_simv
+sim/*_simv.daidir/
+sim/*.vcd
+
+# Root-level VCS/Synopsys strays
+csrc/
+ucli.key
+pt_shell_command.log
+Synopsys_stack_trace_*.txt
+crte_*.txt
+
+# ptpx strays
+ptpx/Synopsys_stack_trace_*.txt
+ptpx/crte_*.txt
+ptpx/pt_shell_command.log
 
 # Synthesis outputs (Synopsys DC)
 syn/alib-52/
@@ -26,15 +44,15 @@ syn/*_synthesized.v
 syn/*_const.sdc
 syn/*_const.sdf
 syn/reports/
-**sim/*.db
-*.sdb
-*.dat
-*.db.*
-*.dadir
-*.db
-*.so
-*.json
-.version
+
+# Generic Synopsys/VCS artifact extensions
+**/*.sdb
+**/*.dat
+**/*.db.*
+**/*.db
+**/*.so
+**/*.json
+**/.version
 
 # Crash dumps
 .bpad/

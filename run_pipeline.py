@@ -1,19 +1,23 @@
 #!/usr/bin/env python3
 """
 Run the full Sobel edge-detection pipeline:
-  1. Convert input image to binary pixel file (pixels.txt)
-  2. Compile img_conv_test.v with VCS
-  3. Run simulation  →  sobel_out.txt + img_conv.vcd
-  4. Reconstruct edge image from simulation output
+  1. Convert input image to binary pixel file  →  out/pixels.txt
+  2. Compile img_conv_test.v with VCS          →  build/img_conv_simv
+  3. Run simulation                            →  out/sobel_out.txt, out/img_conv.vcd
+  4. Reconstruct edge image                    →  out/sobel_result.png (default)
   5. (Optional) Run PTPX power analysis
 
 Usage:
     python3 run_pipeline.py <image.png> [options]
 
 Options:
-    --output   Output image path  (default: sim/sobel_result.png)
-    --ptpx     Also run PTPX power analysis after simulation
+    --output      Output image path  (default: out/sobel_result.png)
+    --ptpx        Also run PTPX power analysis after simulation
     --no-compile  Skip VCS compilation (reuse existing binary)
+
+Directory layout:
+    build/   VCS compile artifacts (binary, csrc/, .daidir/)
+    out/     All generated pipeline files (pixels.txt, waveforms, result image)
 """
 
 import argparse
@@ -22,19 +26,20 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).parent.resolve()
-SIM  = ROOT / "sim"
-RTL  = ROOT / "rtl"
-PTPX = ROOT / "ptpx"
+ROOT      = Path(__file__).parent.resolve()
+SIM       = ROOT / "sim"
+RTL       = ROOT / "rtl"
+PTPX      = ROOT / "ptpx"
+GENERATED = SIM / "generated"
 
-BINARY = SIM / "img_conv_simv"
+BINARY = GENERATED / "img_conv_simv"
 
 VCS_SOURCES = [
-    SIM  / "img_conv_test.v",
-    RTL  / "conv.v",
-    RTL  / "mac.v",
-    RTL  / "register.v",
-    RTL  / "shift.v",
+    SIM / "img_conv_test.v",
+    RTL / "conv.v",
+    RTL / "mac.v",
+    RTL / "register.v",
+    RTL / "shift.v",
 ]
 
 ENV = {**os.environ, "VCS_TARGET_ARCH": "linux64"}
@@ -64,42 +69,47 @@ def run(cmd, cwd=None, check=True):
 
 
 # ---------------------------------------------------------------------------
-# Stage 1 – image → pixels.txt
+# Stage 1 – image → out/pixels.txt
 # ---------------------------------------------------------------------------
 
 def stage_img_to_pixels(image_path: Path):
     step("Convert image to binary pixels")
-    pixels_txt = SIM / "pixels.txt"
-    # img_to_binary.py writes output relative to cwd, so run from sim/
-    # and pass absolute input path
+    GENERATED.mkdir(exist_ok=True)
+    pixels_txt = GENERATED / "pixels.txt"
     run(
         ["python3", SIM / "img_to_binary.py", image_path.resolve(), pixels_txt],
-        cwd=SIM,
     )
     print(f"Pixels written to {pixels_txt}")
 
 
 # ---------------------------------------------------------------------------
-# Stage 2 – VCS compile
+# Stage 2 – VCS compile → build/img_conv_simv
 # ---------------------------------------------------------------------------
 
 def stage_compile():
     step("Compile with VCS")
-    run(
-        ["vcs", "-sverilog", *VCS_SOURCES, "-full64", "-debug_access", "-o", BINARY],
-        cwd=SIM,
-    )
+    GENERATED.mkdir(exist_ok=True)
+    run([
+        "vcs", "-sverilog", *VCS_SOURCES,
+        "-full64", "-debug_access",
+        "-Mdir", GENERATED / "csrc",
+        "-o", BINARY,
+    ])
     print(f"Binary: {BINARY}")
 
 
 # ---------------------------------------------------------------------------
-# Stage 3 – simulation
+# Stage 3 – simulation → out/sobel_out.txt, out/img_conv.vcd
+#
+# cwd is OUT so the Verilog-hardcoded relative paths ("pixels.txt",
+# "sobel_out.txt", "img_conv.vcd") all resolve inside out/.
 # ---------------------------------------------------------------------------
 
 def stage_simulate():
     step("Run simulation")
-    run([BINARY], cwd=SIM)
-    sobel_out = SIM / "sobel_out.txt"
+    GENERATED.mkdir(exist_ok=True)
+    run([BINARY], cwd=GENERATED)
+    sobel_out = GENERATED / "sobel_out.txt"
     if not sobel_out.exists():
         print(f"ERROR: {sobel_out} not produced by simulation")
         sys.exit(1)
@@ -107,21 +117,19 @@ def stage_simulate():
 
 
 # ---------------------------------------------------------------------------
-# Stage 4 – reconstruct image
+# Stage 4 – out/sobel_out.txt → result image
 # ---------------------------------------------------------------------------
 
 def stage_reconstruct(output_image: Path):
     step("Reconstruct edge image")
-    run(
-        [
-            "python3", SIM / "sobel_to_img.py",
-            SIM / "sobel_out.txt",
-            output_image,
-            "--img-w", "34",
-            "--img-h", "34",
-        ],
-        cwd=SIM,
-    )
+    output_image.parent.mkdir(parents=True, exist_ok=True)
+    run([
+        "python3", SIM / "sobel_to_img.py",
+        GENERATED / "sobel_out.txt",
+        output_image,
+        "--img-w", "34",
+        "--img-h", "34",
+    ])
     print(f"Result image: {output_image}")
 
 
@@ -146,8 +154,8 @@ def main():
     )
     parser.add_argument("image", help="Input image (PNG recommended)")
     parser.add_argument(
-        "--output", default=str(SIM / "sobel_result.png"),
-        help="Output edge image path (default: sim/sobel_result.png)",
+        "--output", default=str(GENERATED / "sobel_result.png"),
+        help="Output edge image path (default: sim/generated/sobel_result.png)",
     )
     parser.add_argument(
         "--ptpx", action="store_true",

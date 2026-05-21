@@ -1,0 +1,106 @@
+0
+29
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/usr/local/synopsys/vcs/W-2024.09-SP2-5/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -rdynamic
+-Mobjects= /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libvirsim.so /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/liberrorinf.so /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libsnpsmalloc.so /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libvfs.so
+-Mout=/home/csgrad/nmartinez/sobel-edge-detection/sim/sobel_simv
+-Msaverestoreobj=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=-ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/usr/local/synopsys/vcs/W-2024.09-SP2-5/include
+-Mxllcflags=
+-gen_obj
+-o /home/csgrad/nmartinez/sobel-edge-detection/sim/sobel_simv
+-picarchive
+-sverilog
+/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/bin/vcs1
+/home/csgrad/nmartinez/sobel-edge-detection/sim/sobel_simv
+/home/csgrad/nmartinez/sobel-edge-detection/rtl/mac.v
+/home/csgrad/nmartinez/sobel-edge-detection/rtl/register.v
+/home/csgrad/nmartinez/sobel-edge-detection/rtl/shift.v
+/home/csgrad/nmartinez/sobel-edge-detection/rtl/conv.v
+/home/csgrad/nmartinez/sobel-edge-detection/rtl/sobel.v
+/home/csgrad/nmartinez/sobel-edge-detection/sim/sobel_test.v
+58
+which_declare=declare -f
+XDG_SESSION_ID=124
+XDG_RUNTIME_DIR=/run/user/21633
+XDG_DATA_DIRS=/home/csgrad/nmartinez/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+VSCODE_PYTHON_AUTOACTIVATE_GUARD=1
+VSCODE_IPC_HOOK_CLI=/run/user/21633/vscode-ipc-4b922558-7008-4283-8fbd-e591c6186daf.sock
+VSCODE_GIT_IPC_HANDLE=/run/user/21633/vscode-git-2e4c272737.sock
+VSCODE_GIT_ASKPASS_NODE=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-8b640eef5a6c6089c029249d48efa5c99adf7d51/server/node
+VSCODE_GIT_ASKPASS_MAIN=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-8b640eef5a6c6089c029249d48efa5c99adf7d51/server/extensions/git/dist/askpass-main.js
+VSCODE_GIT_ASKPASS_EXTRA_ARGS=
+VMR_MODE_FLAG=32
+VERDI_HOME=/usr/local/synopsys/verdi/W-2024.09-SP2-5
+VCS_TARGET_ARCH=linux64
+VCS_PYTHON3=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/bin/Python3/bin/python3
+VCS_PATHMAP_PRELOAD_DONE=1
+VCS_MX_HOME_INTERNAL=1
+VCS_INTERNAL_CONVERTEDLIBS=
+VCS_HOME=/usr/local/synopsys/vcs/W-2024.09-SP2-5
+VCS_EXEC_DONE=1
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH=linux64
+UNAME=/bin/uname
+TOOL_HOME=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64
+TERM_PROGRAM_VERSION=1.119.0
+TERM_PROGRAM=vscode
+SYNOPSYS=/usr/local/synopsys
+SSH_CONNECTION=2600:381:e01e:5ce6:f515:1385:6c53:3f04 64487 2607:f290:f:416:169:235:16:45 22
+SSH_CLIENT=2600:381:e01e:5ce6:f515:1385:6c53:3f04 64487 22
+SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
+SNPS_VCS_PYTHON3=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/bin/Python3/bin/python3
+SNPS_VCS_CLANG_PATH=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/clang
+SNPS_INTERNAL_VCS_LINUX_OS=linux
+SNPS_DISABLE_PLATFORM_CHECK=1
+SELINUX_USE_CURRENT_RANGE=
+SELINUX_ROLE_REQUESTED=
+SELINUX_LEVEL_REQUESTED=
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+QUANTUMATK_HOME=/usr/local/synopsys/quantumatk/V-2023.12-SP1
+PT_HOME=/usr/local/synopsys/prime/V-2023.12-SP5-4
+OVA_UUM=0
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LC_ALL=C
+KRB5CCNAME=KCM:
+KDEDIRS=/usr
+HISTCONTROL=ignoredups
+GIT_ASKPASS=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-8b640eef5a6c6089c029249d48efa5c99adf7d51/server/extensions/git/dist/askpass.sh
+EMX_HOME=/usr/local/cadence/EMX20241
+DEBUGINFOD_URLS=https://debuginfod.centos.org/ 
+DC_HOME=/usr/local/synopsys/syn/W-2024.09-SP5-4
+DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/21633/bus
+COLORTERM=truecolor
+CLAUDE_CODE_SSE_PORT=36601
+CDS_LIC_FILE=5280@cadence.engr.ucr.edu
+CDS_LICENSE_FILE=5280@cadence.engr.ucr.edu
+CDS_INST_DIR=/usr/local/cadence/IC618
+BASH_FUNC_which%%=() {  ( alias;_ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@_}
+0
+0
+6
+1778475971 /home/csgrad/nmartinez/sobel-edge-detection/sim/sobel_test.v
+1778478471 /home/csgrad/nmartinez/sobel-edge-detection/rtl/sobel.v
+1778478625 /home/csgrad/nmartinez/sobel-edge-detection/rtl/conv.v
+1777678190 /home/csgrad/nmartinez/sobel-edge-detection/rtl/shift.v
+1778478468 /home/csgrad/nmartinez/sobel-edge-detection/rtl/register.v
+1778478276 /home/csgrad/nmartinez/sobel-edge-detection/rtl/mac.v
+4
+1758339832 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libvirsim.so
+1758338532 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/liberrorinf.so
+1758338525 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libsnpsmalloc.so
+1758338521 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libvfs.so
+1778478631 /home/csgrad/nmartinez/sobel-edge-detection/sim/sobel_simv.daidir
+-1 partitionlib

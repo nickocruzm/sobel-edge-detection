@@ -1,5 +1,5 @@
 0
-33
+36
 +itf+/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/vcsdp_lite.tab
 +vcsd1
 +vpi
@@ -14,7 +14,7 @@
 -Mexternalobj=
 -Mldflags= -rdynamic
 -Mobjects= /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libvirsim.so /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/liberrorinf.so /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libsnpsmalloc.so /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libvfs.so
--Mout=img_conv_simv
+-Mout=/home/csgrad/nmartinez/sobel-edge-detection/sim/img_conv_simv
 -Msaverestoreobj=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/vcs_save_restore_new.o
 -Msyslibs=/usr/local/synopsys/verdi/W-2024.09-SP2-5/share/PLI/VCS/LINUX64/pli.a -ldl
 -Mvcsaceobjs=
@@ -25,27 +25,31 @@
 -fsdb
 -full64
 -gen_obj
--o img_conv_simv
+-o /home/csgrad/nmartinez/sobel-edge-detection/sim/img_conv_simv
 -picarchive
+-sverilog
 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/bin/vcs1
-img_conv_simv
+/home/csgrad/nmartinez/sobel-edge-detection/sim/img_conv_simv
 /usr/local/synopsys/verdi/W-2024.09-SP2-5/share/PLI/VCS/LINUX64/verdi.tab
-img_conv_test.v
-../syn/conv_synthesized.v
-/usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_lvt/verilog/saed32nm_lvt.v
-58
+/home/csgrad/nmartinez/sobel-edge-detection/sim/img_conv_test.v
+/home/csgrad/nmartinez/sobel-edge-detection/rtl/conv.v
+/home/csgrad/nmartinez/sobel-edge-detection/rtl/mac.v
+/home/csgrad/nmartinez/sobel-edge-detection/rtl/register.v
+/home/csgrad/nmartinez/sobel-edge-detection/rtl/shift.v
+60
 which_declare=declare -f
-XDG_SESSION_ID=975
+XDG_SESSION_ID=952
 XDG_RUNTIME_DIR=/run/user/21633
 XDG_DATA_DIRS=/home/csgrad/nmartinez/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
 VSCODE_PYTHON_AUTOACTIVATE_GUARD=1
-VSCODE_IPC_HOOK_CLI=/run/user/21633/vscode-ipc-d31fbace-e241-4cc1-853b-7a21ec025b79.sock
-VSCODE_GIT_IPC_HANDLE=/run/user/21633/vscode-git-b1c98de634.sock
-VSCODE_GIT_ASKPASS_NODE=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-8b640eef5a6c6089c029249d48efa5c99adf7d51/server/node
-VSCODE_GIT_ASKPASS_MAIN=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-8b640eef5a6c6089c029249d48efa5c99adf7d51/server/extensions/git/dist/askpass-main.js
+VSCODE_IPC_HOOK_CLI=/run/user/21633/vscode-ipc-266668fd-5323-4b58-b5a4-bb929b384c1e.sock
+VSCODE_GIT_IPC_HANDLE=/run/user/21633/vscode-git-2e4c272737.sock
+VSCODE_GIT_ASKPASS_NODE=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-f6cfa2ea2403534de03f069bdf160d06451ed282/server/node
+VSCODE_GIT_ASKPASS_MAIN=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-f6cfa2ea2403534de03f069bdf160d06451ed282/server/extensions/git/dist/askpass-main.js
 VSCODE_GIT_ASKPASS_EXTRA_ARGS=
 VMR_MODE_FLAG=64
 VERDI_HOME=/usr/local/synopsys/verdi/W-2024.09-SP2-5
+VCS_TARGET_ARCH=linux64
 VCS_PYTHON3=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/bin/Python3/bin/python3
 VCS_PATHMAP_PRELOAD_DONE=1
 VCS_MX_HOME_INTERNAL=1
@@ -58,11 +62,11 @@ VCS_ARG_ADDED_FOR_TMP=1
 VCS_ARCH=linux64
 UNAME=/bin/uname
 TOOL_HOME=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64
-TERM_PROGRAM_VERSION=1.119.0
+TERM_PROGRAM_VERSION=1.121.0
 TERM_PROGRAM=vscode
 SYNOPSYS=/usr/local/synopsys
-SSH_CONNECTION=10.13.177.61 54235 169.235.16.45 22
-SSH_CLIENT=10.13.177.61 54235 22
+SSH_CONNECTION=76.53.194.98 52384 169.235.16.45 22
+SSH_CLIENT=76.53.194.98 52384 22
 SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
 SNPS_VCS_PYTHON3=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/bin/Python3/bin/python3
 SNPS_VCS_CLANG_PATH=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/clang
@@ -81,23 +85,26 @@ LC_ALL=C
 KRB5CCNAME=KCM:
 KDEDIRS=/usr
 HISTCONTROL=ignoredups
-GIT_ASKPASS=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-8b640eef5a6c6089c029249d48efa5c99adf7d51/server/extensions/git/dist/askpass.sh
+GIT_ASKPASS=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-f6cfa2ea2403534de03f069bdf160d06451ed282/server/extensions/git/dist/askpass.sh
 EMX_HOME=/usr/local/cadence/EMX20241
 DEBUGINFOD_URLS=https://debuginfod.centos.org/ 
 DC_HOME=/usr/local/synopsys/syn/W-2024.09-SP5-4
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/21633/bus
 COLORTERM=truecolor
-CLAUDE_CODE_SSE_PORT=61023
+CLAUDE_CODE_SSE_PORT=32697
+CDS_ROOT=/usr/local/cadence/IC618
 CDS_LIC_FILE=5280@cadence.engr.ucr.edu
 CDS_LICENSE_FILE=5280@cadence.engr.ucr.edu
 CDS_INST_DIR=/usr/local/cadence/IC618
 BASH_FUNC_which%%=() {  ( alias;_ eval ${which_declare} ) | /usr/bin/which --tty-only --read-alias --read-functions --show-tilde --show-dot $@_}
 0
 0
-5
-1746442062 /usr/local/synopsys/pdk/SAED32_EDK/lib/stdcell_lvt/verilog/saed32nm_lvt.v
-1778125010 ../syn/conv_synthesized.v
-1778125895 img_conv_test.v
+7
+1777678190 /home/csgrad/nmartinez/sobel-edge-detection/rtl/shift.v
+1779340440 /home/csgrad/nmartinez/sobel-edge-detection/rtl/register.v
+1779340440 /home/csgrad/nmartinez/sobel-edge-detection/rtl/mac.v
+1779340440 /home/csgrad/nmartinez/sobel-edge-detection/rtl/conv.v
+1778468464 /home/csgrad/nmartinez/sobel-edge-detection/sim/img_conv_test.v
 1757588796 /usr/local/synopsys/verdi/W-2024.09-SP2-5/share/PLI/VCS/LINUX64/verdi.tab
 1758337605 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/vcsdp_lite.tab
 4
@@ -105,5 +112,5 @@ BASH_FUNC_which%%=() {  ( alias;_ eval ${which_declare} ) | /usr/bin/which --tty
 1758338532 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/liberrorinf.so
 1758338525 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libsnpsmalloc.so
 1758338521 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libvfs.so
-1778126215 img_conv_simv.daidir
+1779341178 /home/csgrad/nmartinez/sobel-edge-detection/sim/img_conv_simv.daidir
 -1 partitionlib

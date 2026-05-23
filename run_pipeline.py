@@ -92,7 +92,7 @@ def stage_compile():
     run([
         "vcs", "-sverilog", *VCS_SOURCES,
         "-full64", "-debug_access",
-        "-Mdir", GENERATED / "csrc",
+        f"-Mdir={GENERATED / 'csrc'}",
         "-o", BINARY,
     ])
     print(f"Binary: {BINARY}")
@@ -108,7 +108,7 @@ def stage_compile():
 def stage_simulate():
     step("Run simulation")
     GENERATED.mkdir(exist_ok=True)
-    run([BINARY], cwd=GENERATED)
+    run([BINARY], cwd=GENERATED, check=False)  # VCS returns 255 on normal $finish
     sobel_out = GENERATED / "sobel_out.txt"
     if not sobel_out.exists():
         print(f"ERROR: {sobel_out} not produced by simulation")

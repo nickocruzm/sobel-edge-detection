@@ -1,3 +1,5 @@
+`timescale 1ns / 1ps
+
 // Shifts data by a fixed depth.
 // Optimize in future by finding a way to create 2-d arrays
 

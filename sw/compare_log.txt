@@ -1,5 +1,0 @@
-Size of SW output: 1024
-Size of HW output: 1024
-MAE: 0.0
-Error rate: 0.0
-Max error: 0

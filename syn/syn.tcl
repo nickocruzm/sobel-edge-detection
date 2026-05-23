@@ -85,17 +85,18 @@ compile_ultra -incremental
 change_names -rules verilog -hierarchy
 
 # Write synthesized outputs
-write -format ddc -output "${DESIGN_NAME}_synthesized.ddc"
-write -format verilog -output "${DESIGN_NAME}_synthesized.v"
-write_sdc -nosplit "${DESIGN_NAME}_const.sdc"
-write_sdf "${DESIGN_NAME}_const.sdf"
+exec mkdir -p generated/reports
+write -format ddc -output "generated/${DESIGN_NAME}_synthesized.ddc"
+write -format verilog -output "generated/${DESIGN_NAME}_synthesized.v"
+write_sdc -nosplit "generated/${DESIGN_NAME}_const.sdc"
+write_sdf "generated/${DESIGN_NAME}_const.sdf"
 
 # Generate reports
-report_timing -transition_time -nets -attributes > ${HOME}/${DIRECTORY}/syn/reports/${DESIGN_NAME}_timing_reports.log
-report_qor > ${HOME}/${DIRECTORY}/syn/reports/${DESIGN_NAME}_qor_reports.log
-report_area -hierarchy > ${HOME}/${DIRECTORY}/syn/reports/${DESIGN_NAME}_area_reports.log
-report_power -hierarchy > ${HOME}/${DIRECTORY}/syn/reports/${DESIGN_NAME}_power_reports.log
-report_reference -hierarchy > ${HOME}/${DIRECTORY}/syn/reports/${DESIGN_NAME}_reference_reports.log
+report_timing -transition_time -nets -attributes > ${HOME}/${DIRECTORY}/syn/generated/reports/${DESIGN_NAME}_timing_reports.log
+report_qor > ${HOME}/${DIRECTORY}/syn/generated/reports/${DESIGN_NAME}_qor_reports.log
+report_area -hierarchy > ${HOME}/${DIRECTORY}/syn/generated/reports/${DESIGN_NAME}_area_reports.log
+report_power -hierarchy > ${HOME}/${DIRECTORY}/syn/generated/reports/${DESIGN_NAME}_power_reports.log
+report_reference -hierarchy > ${HOME}/${DIRECTORY}/syn/generated/reports/${DESIGN_NAME}_reference_reports.log
 
 # Exit the synthesis tool
 exit

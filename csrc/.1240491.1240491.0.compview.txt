@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1778474904.898017329, "rt":0.67, "ut":0.25, "st":0.14}}
+{"vcselab":{"timestamp_begin":1778474905.744848383, "rt":0.50, "ut":0.26, "st":0.11}}
+{"link":{"timestamp_begin":1778474906.375730797, "rt":0.29, "ut":0.11, "st":0.10}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1778474904.281840752}
+{"VCS_COMP_START_TIME": 1778474904.281840752}
+{"VCS_COMP_END_TIME": 1778474906.795378781}
+{"VCS_USER_OPTIONS": "-sverilog /home/csgrad/nmartinez/sobel-edge-detection/rtl/mac.v /home/csgrad/nmartinez/sobel-edge-detection/rtl/register.v /home/csgrad/nmartinez/sobel-edge-detection/rtl/shift.v /home/csgrad/nmartinez/sobel-edge-detection/rtl/conv.v /home/csgrad/nmartinez/sobel-edge-detection/rtl/sobel.v /home/csgrad/nmartinez/sobel-edge-detection/sim/sobel_test.v -o /home/csgrad/nmartinez/sobel-edge-detection/sim/sobel_simv"}
+{"vcs1": {"peak_mem": 401812}}
+{"vcselab": {"peak_mem": 268240}}

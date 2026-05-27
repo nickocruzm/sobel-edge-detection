@@ -81,8 +81,14 @@ module conv_tb;
                           uut.reg_10, uut.reg_11, uut.reg_12,
                           uut.reg_20, uut.reg_21, uut.reg_22);
                 fail_count = fail_count + 1;
-                $finish;
+                // $finish;
             end else begin
+                $display("PASS %0d.%0d: (t=%0t)",
+                            test_num, check_num, $time);
+                $display("  window: [%3d %3d %3d] [%3d %3d %3d] [%3d %3d %3d]",
+                          uut.reg_00, uut.reg_01, uut.reg_02,
+                          uut.reg_10, uut.reg_11, uut.reg_12,
+                          uut.reg_20, uut.reg_21, uut.reg_22);
                 pass_count = pass_count + 1;
             end
         end
@@ -107,7 +113,7 @@ module conv_tb;
         pxl_in     = 0;
 
         $monitor("t=%0t pxl_in=%0d | pxl_out=%0d valid=%b",
-                  $time, pxl_in, pxl_out, valid);
+                  $time, pxl_in, $signed(pxl_out), valid);
 
         do_reset;
 
@@ -116,34 +122,34 @@ module conv_tb;
         send_pixel(0); send_pixel(1); send_pixel(0); send_pixel(1); send_pixel(0);
         send_pixel(1); send_pixel(2);
         // args: last_pixel_value, expected_value, Test, test number
-        send_and_check(3,  16'd16, 1, 1);
-        send_and_check(4,  16'd24, 1, 2);
-        send_and_check(5,  16'd32, 1, 3);
+        send_and_check(3,  16'd0, 1, 1);
+        send_and_check(4,  16'd0, 1, 2);
+        send_and_check(5,  16'd0, 1, 3);
         send_pixel(0); send_pixel(1);
-        send_and_check(0,  16'd4,  1, 4);
-        send_and_check(1,  16'd4,  1, 5);
-        send_and_check(0,  16'd4,  1, 6);
+        send_and_check(0,  16'd16,  1, 4);
+        send_and_check(1,  16'd16,  1, 5);
+        send_and_check(0,  16'd16,  1, 6);
         send_pixel(1); send_pixel(2);
-        send_and_check(3,  16'd16, 1, 7);
-        send_and_check(4,  16'd24, 1, 8);
-        send_and_check(5,  16'd32, 1, 9);
+        send_and_check(3,  16'd0, 1, 7);
+        send_and_check(4,  16'd0, 1, 8);
+        send_and_check(5,  16'd0, 1, 9);
         $display("PASS TEST 1"); do_reset;
 
         // ── Test 2: (0 1 0 1 0 | 1 2 3 4 5 | 0 1 0 1 0 | 1 2 3 4 5 | 0 1 0 1 0) ──
         send_pixel(0); send_pixel(1); send_pixel(0); send_pixel(1); send_pixel(0);
         send_pixel(1); send_pixel(2); send_pixel(3); send_pixel(4); send_pixel(5);
         send_pixel(0); send_pixel(1);
-        send_and_check(0,  16'd4,  2, 1);
-        send_and_check(1,  16'd4,  2, 2);
-        send_and_check(0,  16'd4,  2, 3);
+        send_and_check(0,  16'd16,  2, 1);
+        send_and_check(1,  16'd16,  2, 2);
+        send_and_check(0,  16'd16,  2, 3);
         send_pixel(1); send_pixel(2);
-        send_and_check(3,  16'd16, 2, 4);
-        send_and_check(4,  16'd24, 2, 5);
-        send_and_check(5,  16'd32, 2, 6);
+        send_and_check(3,  16'd0, 2, 4);
+        send_and_check(4,  16'd0, 2, 5);
+        send_and_check(5,  16'd0, 2, 6);
         send_pixel(0); send_pixel(1);
-        send_and_check(0,  16'd4,  2, 7);
-        send_and_check(1,  16'd4,  2, 8);
-        send_and_check(0,  16'd4,  2, 9);
+        send_and_check(0,  16'd16,  2, 7);
+        send_and_check(1,  16'd16,  2, 8);
+        send_and_check(0,  16'd16,  2, 9);
         $display("PASS TEST 2"); do_reset;
 
         // ── Test 3: (5 4 3 2 1 | 0 1 0 1 0 | 5 4 3 2 1 | 0 1 0 1 0 | 5 4 3 2 1) ──

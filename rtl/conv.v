@@ -52,7 +52,7 @@ module conv(
 	mac mac_02(pxl_in, K_02, reg_01, wire_02);
 	register r_02(clk, reset, wire_02, reg_02);
 
-	shift row_1(clk, reg_02, sr_0);
+	shift row_1(clk, reset, reg_02, sr_0);
 
 	// Row : 2
 	mac mac_10(pxl_in, K_10, sr_0, wire_10);
@@ -64,7 +64,7 @@ module conv(
 	mac mac_12(pxl_in, K_12, reg_11, wire_12);
 	register r_12(clk, reset, wire_12, reg_12);
 
-	shift row_2(clk, reg_12, sr_1);
+	shift row_2(clk, reset, reg_12, sr_1);
 
 	// Row : 3
 	mac mac_20(pxl_in, K_20, sr_1, wire_20);

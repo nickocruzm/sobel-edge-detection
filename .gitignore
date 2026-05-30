@@ -39,3 +39,6 @@ syn/reports/
 # Crash dumps
 .bpad/
 *.dmp
+
+# NFS temporary files
+.nfs*

@@ -41,7 +41,7 @@ module conv(
 	mac mac_02(pxl_in, kernel_02, reg_01, wire_02); 
 	register r_02(clk, reset, wire_02, reg_02); 
 
-	shift row_1(clk, reg_02, sr_0);
+	shift #(.D(N-K)) row_1(clk, reg_02, sr_0);
 
 	// Row : 2
 	mac mac_10(pxl_in, kernel_10, sr_0, wire_10); 
@@ -53,7 +53,7 @@ module conv(
 	mac mac_12(pxl_in, kernel_12, reg_11, wire_12); 
 	register r_12(clk, reset, wire_12, reg_12); 
 
-	shift row_2(clk, reg_12, sr_1);
+	shift #(.D(N-K)) row_2(clk, reg_12, sr_1);
 
 	// Row : 3
 	mac mac_20(pxl_in, kernel_20, sr_1, wire_20); 
@@ -71,13 +71,14 @@ module conv(
 
 	reg [10:0] counter = 0;
 	reg temp = 0;
+  localparam LATENCY = 1;
 
 	always @(posedge clk) begin
 		counter = counter + 1;
 	
 		// The logic below needs some revisiting to scale properly
-		if (counter > ((K-1)*N + (K-1)) && counter < (M*N) + (K-1)) begin
-			if ((counter - (K-1)) % N > 1) begin
+		if (counter > ((K-1)*N + (K-1) + LATENCY) && counter < (M*N) + (K-1) + LATENCY) begin
+			if ((counter - (K-1) - LATENCY ) % N > 1) begin
 				temp <= 1;
 				end
 			else

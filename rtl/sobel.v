@@ -55,6 +55,8 @@ module sobel(
         .reg_20(), .reg_21(), .reg_22()
     );
 
+
+    // absolute value of (gx) + (gy)
     assign magnitude = (gx < 0 ? -gx : gx) + (gy < 0 ? -gy : gy);
 
 endmodule

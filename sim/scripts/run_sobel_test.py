@@ -6,7 +6,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-ROOT = Path(__file__).parent.parent
+ROOT = Path(__file__).resolve().parent.parent.parent
 SIM  = ROOT / "sim"
 RTL  = ROOT / "rtl"
 
@@ -27,8 +27,8 @@ SOBEL_SOURCES = [
     SIM / "sobel_test.v",
 ]
 
-CONV_BINARY  = SIM / "conv_simv"
-SOBEL_BINARY = SIM / "sobel_simv"
+CONV_BINARY  = SIM / "bin/conv_simv"
+SOBEL_BINARY = SIM / "bin/sobel_simv"
 
 ENV = {**os.environ, "VCS_TARGET_ARCH": "linux64"}
 

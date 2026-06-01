@@ -1,15 +1,14 @@
 `timescale 1ns / 1ps
-
-module img_conv_test;
-
+// Streams a real 32x32 image (loaded from pixels.txt) through the sobel module
+// with 1-pixel zero padding on every side, so the valid output is IMG_W x IMG_H.
+// Each valid magnitude is written to sobel_out.txt (one value per line).
+module img_sobel_test;
     // Original image dimensions
     parameter IMG_W = 32;
     parameter IMG_H = 32;
-
-    // Padded dimensions fed to conv (1 zero pixel per side)
+    // Padded dimensions fed to sobel (1 zero pixel per side)
     parameter PAD_W = IMG_W + 2;
     parameter PAD_H = IMG_H + 2;
-
     parameter TOTAL = IMG_W * IMG_H;
 
     // Pixel memory: loaded from binary text file
@@ -19,49 +18,38 @@ module img_conv_test;
     reg        clk;
     reg        reset;
     reg  [7:0] pxl_in;
-
-    wire [15:0] reg_00; wire [15:0] reg_01; wire [15:0] reg_02; wire [15:0] sr_0;
-    wire [15:0] reg_10; wire [15:0] reg_11; wire [15:0] reg_12; wire [15:0] sr_1;
-    wire [15:0] reg_20; wire [15:0] reg_21; wire [15:0] reg_22;
-    wire [15:0] pxl_out;
+    wire [15:0] magnitude;
     wire        valid;
 
-    // Conv sees the padded image so valid output is IMG_W x IMG_H
-    conv #(.N(PAD_W), .M(PAD_H)) uut (
+    // Sobel sees the padded image so valid output is IMG_W x IMG_H
+    sobel #(.N(PAD_W), .M(PAD_H)) uut (
         .clk(clk),
         .reset(reset),
         .pxl_in(pxl_in),
-        .reg_00(reg_00), .reg_01(reg_01), .reg_02(reg_02), .sr_0(sr_0),
-        .reg_10(reg_10), .reg_11(reg_11), .reg_12(reg_12), .sr_1(sr_1),
-        .reg_20(reg_20), .reg_21(reg_21), .reg_22(reg_22),
-        .pxl_out(pxl_out),
+        .magnitude(magnitude),
         .valid(valid)
     );
 
-    // 1.5 ns half-period → 3 ns clock (333 MHz)
+    // 1.5 ns half-period -> 3 ns clock (333 MHz)
     always #1.5 clk = ~clk;
 
     integer i, row, col;
     integer fd;
 
-    // Write pxl_out to file whenever valid is high
+    // Write magnitude to file whenever valid is high
     always @(posedge clk) begin
         if (valid)
-            $fdisplay(fd, "%0d", pxl_out);
+            $fdisplay(fd, "%0d", magnitude);
     end
 
     initial begin
-        clk   = 0;
-        reset = 1;
+        clk    = 0;
+        reset  = 1;
         pxl_in = 0;
-        // Where the sobel outputs are written
-        fd = $fopen("../Material/img_conv/output/002.txt", "w");
-
-        // Read the sobel inputs
+        fd = $fopen("../Material/sobel/output/002.txt", "w");
         $readmemb("../Material/pixels/002.txt", pixel_mem);
-
-        $monitor("t=%0t pxl_in=%0d | pxl_out=%0d valid=%b",
-                 $time, pxl_in, pxl_out, valid);
+        $monitor("t=%0t pxl_in=%0d | magnitude=%0d valid=%b",
+                 $time, pxl_in, magnitude, valid);
 
         @(posedge clk); #0.1;
         @(posedge clk); #0.1;
@@ -96,8 +84,7 @@ module img_conv_test;
 
     // Waveform dumps
     initial begin
-        $dumpfile("generated/img_conv.vcd");
-        $dumpvars(0, img_conv_test);
+        $dumpfile("generated/img_sobel.vcd");
+        $dumpvars(0, img_sobel_test);
     end
-
 endmodule

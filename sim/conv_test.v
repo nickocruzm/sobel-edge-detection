@@ -458,7 +458,7 @@ module conv_tb;
 
     // ─── Waveform Dump ────────────────────────────────────
     initial begin
-        $dumpfile("conv.vcd");
+        $dumpfile("generated/conv.vcd");
         $dumpvars(0, conv_tb);
     end
 

@@ -3,8 +3,8 @@
 Reconstruct images from simulation output files.
 
 Reads all .txt files from Material/img_conv/output and Material/sobel/output,
-and writes the resulting images to Material/img_conv/produced and
-Material/sobel/produced, respectively.
+and writes the resulting images to Material/img_conv/final and
+Material/sobel/final, respectively.
 
 Usage:
     python3 sobel_to_img.py
@@ -16,6 +16,7 @@ from PIL import Image
 
 REPO_ROOT = Path(__file__).resolve().parent.parent.parent
 MATERIAL = REPO_ROOT / "Material"
+SW = REPO_ROOT / "sw"
 
 IMG_W = 34  # padded width (32 + 2)
 IMG_H = 34  # padded height (32 + 2)
@@ -23,6 +24,7 @@ IMG_H = 34  # padded height (32 + 2)
 CONVERSIONS = [
     (MATERIAL / "img_conv" / "output", MATERIAL / "img_conv" / "final"),
     (MATERIAL / "sobel"    / "output", MATERIAL / "sobel"    / "final"),
+    (SW, MATERIAL/"sw_golden_model")
 ]
 
 
@@ -53,13 +55,13 @@ def txt_to_img(input_path: Path, output_path: Path):
     print(f"  {input_path.name} -> {output_path}")
 
 
-if __name__ == "__main__":
-    for src_dir, dst_dir in CONVERSIONS:
-        txt_files = sorted(src_dir.glob("*.txt")) if src_dir.exists() else []
-        if not txt_files:
-            print(f"No .txt files in {src_dir}, skipping.")
-            continue
-        dst_dir.mkdir(parents=True, exist_ok=True)
-        print(f"{src_dir.relative_to(REPO_ROOT)} -> {dst_dir.relative_to(REPO_ROOT)}")
-        for txt_file in txt_files:
-            txt_to_img(txt_file, dst_dir / f"{txt_file.stem}.png")
+
+for src_dir, dst_dir in CONVERSIONS:
+    txt_files = sorted(src_dir.glob("*.txt")) if src_dir.exists() else []
+    if not txt_files:
+        print(f"No .txt files in {src_dir}, skipping.")
+        continue
+    dst_dir.mkdir(parents=True, exist_ok=True)
+    print(f"{src_dir.relative_to(REPO_ROOT)} -> {dst_dir.relative_to(REPO_ROOT)}")
+    for txt_file in txt_files:
+        txt_to_img(txt_file, dst_dir / f"{txt_file.stem}.png")

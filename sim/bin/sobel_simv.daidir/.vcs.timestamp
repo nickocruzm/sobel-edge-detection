@@ -31,16 +31,16 @@
 /home/csgrad/nmartinez/sobel-edge-detection/sim/sobel_test.v
 64
 which_declare=declare -f
-XDG_SESSION_ID=1696
+XDG_SESSION_ID=2085
 XDG_RUNTIME_DIR=/run/user/21633
 XDG_DATA_DIRS=/home/csgrad/nmartinez/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
 VSCODE_PYTHON_AUTOACTIVATE_GUARD=1
-VSCODE_IPC_HOOK_CLI=/run/user/21633/vscode-ipc-32a98c93-6a6c-485c-81a9-6d4124c50757.sock
+VSCODE_IPC_HOOK_CLI=/run/user/21633/vscode-ipc-4e86a207-df2a-468f-9fb6-62da76c6a6a0.sock
 VSCODE_GIT_IPC_HANDLE=/run/user/21633/vscode-git-2e4c272737.sock
 VSCODE_GIT_ASKPASS_NODE=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-8761a5560cfd65fdd19ce7e2bd18dab5c0a4d84e/server/node
 VSCODE_GIT_ASKPASS_MAIN=/home/csgrad/nmartinez/.vscode-server/cli/servers/Stable-8761a5560cfd65fdd19ce7e2bd18dab5c0a4d84e/server/extensions/git/dist/askpass-main.js
 VSCODE_GIT_ASKPASS_EXTRA_ARGS=
-VSCODE_DEBUGPY_ADAPTER_ENDPOINTS=/home/csgrad/nmartinez/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-a8c940672edec5a4.txt
+VSCODE_DEBUGPY_ADAPTER_ENDPOINTS=/home/csgrad/nmartinez/.vscode-server/extensions/ms-python.debugpy-2026.6.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-49960720570d6640.txt
 VMR_MODE_FLAG=32
 VERDI_HOME=/usr/local/synopsys/verdi/W-2024.09-SP2-5
 VCS_TARGET_ARCH=linux64
@@ -58,8 +58,8 @@ TOOL_HOME=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64
 TERM_PROGRAM_VERSION=1.122.1
 TERM_PROGRAM=vscode
 SYNOPSYS=/usr/local/synopsys
-SSH_CONNECTION=47.156.104.134 49658 169.235.16.45 22
-SSH_CLIENT=47.156.104.134 49658 22
+SSH_CONNECTION=76.53.194.98 54686 169.235.16.45 22
+SSH_CLIENT=76.53.194.98 54686 22
 SSH_ASKPASS=/usr/libexec/openssh/gnome-ssh-askpass
 SNPS_VCS_PYTHON3=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/bin/Python3/bin/python3
 SNPS_VCS_CLANG_PATH=/usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/clang
@@ -87,7 +87,7 @@ DEBUGINFOD_URLS=https://debuginfod.centos.org/
 DC_HOME=/usr/local/synopsys/syn/W-2024.09-SP5-4
 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/21633/bus
 COLORTERM=truecolor
-CLAUDE_CODE_SSE_PORT=52496
+CLAUDE_CODE_SSE_PORT=24056
 CDS_ROOT=/usr/local/cadence/IC618
 CDS_LIC_FILE=5280@cadence.engr.ucr.edu
 CDS_LICENSE_FILE=5280@cadence.engr.ucr.edu
@@ -97,10 +97,10 @@ BASH_FUNC_which%%=() {  ( alias;_ eval ${which_declare} ) | /usr/bin/which --tty
 0
 0
 6
-1780182369 /home/csgrad/nmartinez/sobel-edge-detection/sim/sobel_test.v
-1779340440 /home/csgrad/nmartinez/sobel-edge-detection/rtl/sobel.v
-1780196336 /home/csgrad/nmartinez/sobel-edge-detection/rtl/conv.v
-1779899730 /home/csgrad/nmartinez/sobel-edge-detection/rtl/shift.v
+1780343098 /home/csgrad/nmartinez/sobel-edge-detection/sim/sobel_test.v
+1780343098 /home/csgrad/nmartinez/sobel-edge-detection/rtl/sobel.v
+1780343098 /home/csgrad/nmartinez/sobel-edge-detection/rtl/conv.v
+1780343098 /home/csgrad/nmartinez/sobel-edge-detection/rtl/shift.v
 1779340440 /home/csgrad/nmartinez/sobel-edge-detection/rtl/register.v
 1779340440 /home/csgrad/nmartinez/sobel-edge-detection/rtl/mac.v
 4
@@ -108,5 +108,5 @@ BASH_FUNC_which%%=() {  ( alias;_ eval ${which_declare} ) | /usr/bin/which --tty
 1758338532 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/liberrorinf.so
 1758338525 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libsnpsmalloc.so
 1758338521 /usr/local/synopsys/vcs/W-2024.09-SP2-5/linux64/lib/libvfs.so
-1780197732 /home/csgrad/nmartinez/sobel-edge-detection/sim/bin/sobel_simv.daidir
+1780344002 /home/csgrad/nmartinez/sobel-edge-detection/sim/bin/sobel_simv.daidir
 -1 partitionlib

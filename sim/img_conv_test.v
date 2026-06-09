@@ -55,10 +55,10 @@ module img_conv_test;
         reset = 1;
         pxl_in = 0;
         // Where the sobel outputs are written
-        fd = $fopen("../Material/img_conv/output/002.txt", "w");
+        fd = $fopen("../../Material/img_conv/output/002.txt", "w");
 
         // Read the sobel inputs
-        $readmemb("../Material/pixels/002.txt", pixel_mem);
+        $readmemb("../../Material/pixels/002.txt", pixel_mem);
 
         $monitor("t=%0t pxl_in=%0d | pxl_out=%0d valid=%b",
                  $time, pxl_in, pxl_out, valid);

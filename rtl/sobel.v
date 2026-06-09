@@ -20,6 +20,7 @@ module sobel(
     parameter K = 3;
 
     wire signed [15:0] gx, gy;
+    wire conv_valid_wire;
 
     // Gx kernel:
     // -1  0  1
@@ -57,6 +58,24 @@ module sobel(
 
 
     // absolute value of (gx) + (gy)
-    assign magnitude = (gx < 0 ? -gx : gx) + (gy < 0 ? -gy : gy);
+    reg [15:0] magnitude_reg;
+    reg [3:0]  valid_delay;
+
+    always @(posedge clk or posedge reset) begin
+        if (reset) begin
+            magnitude_reg <= 0;
+            valid_delay   <= 0;
+        end else begin
+            // Register the L1 norm calculation (1 cycle of latency introduced here)
+            magnitude_reg <= (gx < 0 ? -gx : gx) + (gy < 0 ? -gy : gy);
+            
+            // Delay the incoming valid signal by 4 total cycles to compensate 
+            // for the conv inaccuracy + our new magnitude register stage
+            valid_delay <= {valid_delay[2:0], conv_valid_wire}; 
+        end
+    end
+
+    assign magnitude = magnitude_reg;
+    assign valid     = valid_delay[3];
 
 endmodule

@@ -31,7 +31,7 @@ def img_to_binary(image_path: Path):
         for px in pixels:
             f.write(f"{px:08b}\n")
 
-    print(f"{image_path.name}: {width}x{height} ({len(pixels)} pixels) -> {output_path}")
+    print(f"{image_path.name}: {width}x{height} ({len(pixels)} pixels) -> {output_path.relative_to(REPO_ROOT)}")
 
 def images_to_binary():
     image_files = [p for p in MATERIAL.iterdir() if p.is_file() and p.suffix.lower() in IMAGE_EXTENSIONS]

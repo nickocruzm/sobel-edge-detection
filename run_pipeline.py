@@ -1,45 +1,39 @@
 #!/usr/bin/env python3
-"""
-Run the full Sobel edge-detection pipeline:
-  1. Convert input image to binary pixel file  →  out/pixels.txt
-  2. Compile img_conv_test.v with VCS          →  build/img_conv_simv
-  3. Run simulation                            →  out/sobel_out.txt, out/img_conv.vcd
-  4. Reconstruct edge image                    →  out/sobel_result.png (default)
-  5. (Optional) Run PTPX power analysis
-
-Usage:
-    python3 run_pipeline.py <image.png> [options]
-
-Options:
-    --output      Output image path  (default: out/sobel_result.png)
-    --ptpx        Also run PTPX power analysis after simulation
-    --no-compile  Skip VCS compilation (reuse existing binary)
-
-Directory layout:
-    build/   VCS compile artifacts (binary, csrc/, .daidir/)
-    out/     All generated pipeline files (pixels.txt, waveforms, result image)
-"""
 
 import argparse
 import os
 import subprocess
 import sys
+import shutil
 from pathlib import Path
 
-ROOT      = Path(__file__).parent.resolve()
-SIM       = ROOT / "sim"
-RTL       = ROOT / "rtl"
-PTPX      = ROOT / "ptpx"
-GENERATED = SIM / "generated"
+ROOT = Path(__file__).parent.resolve()
 
+SIM = ROOT / "sim"
+SW = ROOT / "sw"
+RTL = ROOT / "rtl"
+PTPX = ROOT / "ptpx"
+
+MATERIAL = ROOT / "Material"
+
+PIXELS_DIR = MATERIAL / "pixels"
+
+SW_OUT_DIR = MATERIAL / "sw_golden_model" / "output"
+SW_FINAL_DIR = MATERIAL / "sw_golden_model" / "final"
+
+RTL_OUT_DIR = MATERIAL / "sobel" / "output"
+RTL_FINAL_DIR = MATERIAL / "sobel" / "final"
+
+GENERATED = SIM / "generated"
 BINARY = GENERATED / "img_conv_simv"
 
 VCS_SOURCES = [
-    SIM / "img_conv_test.v",
+    SIM / "img_sobel_test.v",
     RTL / "conv.v",
     RTL / "mac.v",
     RTL / "register.v",
     RTL / "shift.v",
+    RTL / "sobel.v",
 ]
 
 ENV = {**os.environ, "VCS_TARGET_ARCH": "linux64"}
@@ -56,154 +50,225 @@ def step(msg):
 
 def run(cmd, cwd=None, check=True):
     print("$", " ".join(str(c) for c in cmd))
-    result = subprocess.run(
-        [str(c) for c in cmd],
-        cwd=cwd,
-        env=ENV,
-        capture_output=False,
-    )
-    if check and result.returncode != 0:
-        print(f"\nERROR: command exited with code {result.returncode}")
-        sys.exit(result.returncode)
-    return result
+    res = subprocess.run([str(c) for c in cmd], cwd=cwd, env=ENV)
+    if check and res.returncode != 0:
+        sys.exit(res.returncode)
+    return res
 
 
-# ---------------------------------------------------------------------------
-# Stage 1 – image → out/pixels.txt
-# ---------------------------------------------------------------------------
-
-def stage_img_to_pixels(image_path: Path):
-    step("Convert image to binary pixels")
-    GENERATED.mkdir(exist_ok=True)
-    pixels_txt = GENERATED / "pixels.txt"
-    run(
-        ["python3", SIM / "img_to_binary.py", image_path.resolve(), pixels_txt],
-    )
-    print(f"Pixels written to {pixels_txt}")
+# -----------------------------
+# clean outputs
+# -----------------------------
+def clean():
+    for d in [PIXELS_DIR, SW_OUT_DIR, SW_FINAL_DIR, RTL_OUT_DIR, RTL_FINAL_DIR]:
+        shutil.rmtree(d, ignore_errors=True)
+        d.mkdir(parents=True, exist_ok=True)
 
 
-# ---------------------------------------------------------------------------
-# Stage 2 – VCS compile → build/img_conv_simv
-# ---------------------------------------------------------------------------
+# -----------------------------
+# Stage 0 - PNG → pixels
+# -----------------------------
+def run_img_to_binary():
+    step("Convert PNG images to pixel txt")
 
-def stage_compile():
-    step("Compile with VCS")
-    GENERATED.mkdir(exist_ok=True)
+    PIXELS_DIR.mkdir(parents=True, exist_ok=True)
+
+    run([
+        "python3",
+        SIM / "scripts" / "img_to_binary.py",
+        MATERIAL,
+        PIXELS_DIR,
+    ])
+
+
+# -----------------------------
+# Stage 1 - SW golden model
+# -----------------------------
+def run_sw():
+    step("Run SW golden model")
+
+    SW_OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    for img in sorted(PIXELS_DIR.glob("*.txt")):
+        name = img.stem
+        out_file = SW_OUT_DIR / f"{name}.txt"
+
+        run([
+            "python3",
+            SW / "sobel_ref.py",
+            img,
+            out_file,
+        ])
+
+        print(f"{img.relative_to(ROOT)} -> {out_file.relative_to(ROOT)}")
+
+
+# -----------------------------
+# RTL compile
+# -----------------------------
+def compile():
+    step("Compile RTL")
+
+    GENERATED.mkdir(parents=True, exist_ok=True)
+
     run([
         "vcs", "-sverilog", *VCS_SOURCES,
         "-full64", "-debug_access",
         f"-Mdir={GENERATED / 'csrc'}",
         "-o", BINARY,
     ])
-    print(f"Binary: {BINARY}")
 
 
-# ---------------------------------------------------------------------------
-# Stage 3 – simulation → out/sobel_out.txt, out/img_conv.vcd
-#
-# cwd is OUT so the Verilog-hardcoded relative paths ("pixels.txt",
-# "sobel_out.txt", "img_conv.vcd") all resolve inside out/.
-# ---------------------------------------------------------------------------
+# -----------------------------
+# RTL simulation (kept original logic, single test)
+# -----------------------------
+def run_rtl():
+    step("Run RTL simulation (batch)")
 
-def stage_simulate():
-    step("Run simulation")
-    GENERATED.mkdir(exist_ok=True)
-    run([BINARY], cwd=GENERATED, check=False)  # VCS returns 255 on normal $finish
-    sobel_out = GENERATED / "sobel_out.txt"
-    if not sobel_out.exists():
-        print(f"ERROR: {sobel_out} not produced by simulation")
+    images = sorted(PIXELS_DIR.glob("*.txt"))
+
+    GENERATED.mkdir(parents=True, exist_ok=True)
+    RTL_OUT_DIR.mkdir(parents=True, exist_ok=True)
+
+    for img in images:
+        name = img.stem
+        rtl_output = RTL_OUT_DIR / f"{name}.txt"
+
+        run([
+            BINARY,
+            f"+IN={img}",
+            f"+OUT={rtl_output}"
+        ], cwd=GENERATED)
+
+        if not rtl_output.exists():
+            print(f"ERROR: RTL output not generated for {name}")
+            sys.exit(1)
+
+        print(f"RTL done: {name}")
+
+    print("RTL batch complete")
+
+
+# -----------------------------
+# SW output → image
+# -----------------------------
+def txt_to_img(in_path: Path, out_path: Path):
+    import numpy as np
+    from PIL import Image
+
+    values = [int(x.strip()) for x in in_path.read_text().splitlines() if x.strip()]
+    arr = np.array(values, dtype=np.float32)
+
+    try:
+        if arr.size == 1156:
+            img_padded = arr.reshape(34, 34)
+            img_core = img_padded[1:33, 1:33]
+        else:
+            img_core = arr.reshape(32, 32)
+    except ValueError:
+        print(f"Skip bad file: {in_path.relative_to(ROOT)}")
+        return
+
+    if img_core.max() > 0:
+        img_core = img_core / img_core.max() * 255
+
+    img = img_core.astype("uint8")
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    Image.fromarray(img, mode="L").save(out_path)
+
+    print(f"{in_path.relative_to(ROOT)} -> {out_path.relative_to(ROOT)}")
+
+
+def convert_images():
+    step("Convert SW outputs to images")
+
+    for f in sorted(SW_OUT_DIR.glob("*.txt")):
+        out_img = SW_FINAL_DIR / f"{f.stem}.png"
+        txt_to_img(f, out_img)
+
+# -----------------------------
+# RTL output → image
+# -----------------------------
+def convert_rtl_txt_to_img(in_path: Path, out_path: Path):
+    import numpy as np
+    from PIL import Image
+
+    values = [int(x.strip()) for x in in_path.read_text().splitlines() if x.strip()]
+    arr = np.array(values, dtype=np.float32)
+
+    try:
+        # Sobel output should be 32x32 (no padding in output file)
+        img_core = arr.reshape(32, 32)
+    except ValueError:
+        print(f"Skip bad RTL file: {in_path.relative_to(ROOT)}")
+        return
+
+    # normalize for visualization
+    if img_core.max() > 0:
+        img_core = img_core / img_core.max() * 255
+
+    img = img_core.astype("uint8")
+
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    Image.fromarray(img, mode="L").save(out_path)
+
+    print(f"{in_path.relative_to(ROOT)} -> {out_path.relative_to(ROOT)}")
+
+
+def convert_rtl_images():
+    step("Convert RTL outputs to images")
+
+    for f in sorted(RTL_OUT_DIR.glob("*.txt")):
+        out_img = RTL_FINAL_DIR / f"{f.stem}.png"
+        convert_rtl_txt_to_img(f, out_img)
+
+# -----------------------------
+# SW vs RTL compare
+# -----------------------------
+def run_compare():
+    step("Compare SW vs RTL outputs")
+
+    compare_script = SW / "compare.py"
+
+    if not compare_script.exists():
+        print(f"ERROR: missing {compare_script}")
         sys.exit(1)
-    print(f"Simulation output: {sobel_out}")
 
-
-# ---------------------------------------------------------------------------
-# Stage 4 – out/sobel_out.txt → result image
-# ---------------------------------------------------------------------------
-
-def stage_reconstruct(output_image: Path):
-    step("Reconstruct edge image")
-    output_image.parent.mkdir(parents=True, exist_ok=True)
     run([
-        "python3", SIM / "sobel_to_img.py",
-        GENERATED / "sobel_out.txt",
-        output_image,
-        "--img-w", "34",
-        "--img-h", "34",
+        "python3",
+        compare_script
     ])
-    print(f"Result image: {output_image}")
 
+    print("Comparison complete")
 
-# ---------------------------------------------------------------------------
-# Stage 5 – PTPX (optional)
-# ---------------------------------------------------------------------------
-
-def stage_ptpx():
-    step("Run PTPX power analysis")
-    run(["pt_shell", "-f", "ptpx.tcl"], cwd=PTPX)
-    print(f"Reports in {PTPX / 'reports'}/")
-
-
-# ---------------------------------------------------------------------------
-# Entry point
-# ---------------------------------------------------------------------------
-
+# -----------------------------
+# main
+# -----------------------------
 def main():
-    parser = argparse.ArgumentParser(
-        description="Run the full Sobel edge-detection pipeline.",
-        formatter_class=argparse.RawDescriptionHelpFormatter,
-    )
-    parser.add_argument("image", help="Input image (PNG recommended)")
-    parser.add_argument(
-        "--output", default=str(GENERATED / "sobel_result.png"),
-        help="Output edge image path (default: sim/generated/sobel_result.png)",
-    )
-    parser.add_argument(
-        "--ptpx", action="store_true",
-        help="Run PTPX power analysis after simulation",
-    )
-    parser.add_argument(
-        "--no-compile", action="store_true",
-        help="Skip VCS compilation (reuse existing binary)",
-    )
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--no-compile", action="store_true")
+    parser.add_argument("--no-rtl", action="store_true")
+    parser.add_argument("--no-compare", action="store_true")
     args = parser.parse_args()
 
-    image_path = Path(args.image)
-    if not image_path.exists():
-        print(f"ERROR: image not found: {image_path}")
-        sys.exit(1)
+    clean()
 
-    output_image = Path(args.output)
-
-    print("=" * 60)
-    print("  Sobel Edge-Detection Pipeline")
-    print("=" * 60)
-    print(f"  Input  : {image_path.resolve()}")
-    print(f"  Output : {output_image.resolve()}")
-    print(f"  PTPX   : {'yes' if args.ptpx else 'no'}")
-    print(f"  Compile: {'no (--no-compile)' if args.no_compile else 'yes'}")
-
-    stage_img_to_pixels(image_path)
+    run_img_to_binary()   # Stage 0
+    run_sw()              # SW golden model
+    convert_images()      # SW images
 
     if not args.no_compile:
-        stage_compile()
-    else:
-        if not BINARY.exists():
-            print(f"ERROR: --no-compile set but binary not found: {BINARY}")
-            sys.exit(1)
-        print(f"\n[skipped] VCS compile — using {BINARY}")
+        compile()
 
-    stage_simulate()
-    stage_reconstruct(output_image)
+    if not args.no_rtl:
+        run_rtl()
+        convert_rtl_images()
 
-    if args.ptpx:
-        stage_ptpx()
+    if not args.no_compare:
+        run_compare()
 
-    print("\n" + "=" * 60)
-    print("  Pipeline complete!")
-    print(f"  Edge image: {output_image.resolve()}")
-    if args.ptpx:
-        print(f"  PTPX reports: {PTPX / 'reports'}/")
-    print("=" * 60)
+    print("\nDONE")
 
 
 if __name__ == "__main__":

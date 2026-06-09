@@ -41,13 +41,19 @@ module img_sobel_test;
         if (valid)
             $fdisplay(fd, "%0d", magnitude);
     end
+    
+    string in_file;
+    string out_file;
 
     initial begin
         clk    = 0;
         reset  = 1;
         pxl_in = 0;
-        fd = $fopen("../Material/sobel/output/002.txt", "w");
-        $readmemb("../Material/pixels/002.txt", pixel_mem);
+        if (!$value$plusargs("IN=%s", in_file)) in_file = "../../Material/pixels/002.txt";
+        if (!$value$plusargs("OUT=%s", out_file)) out_file = "../../Material/sobel/output/002.txt";
+
+        fd = $fopen(out_file, "w");
+        $readmemb(in_file, pixel_mem);
         $monitor("t=%0t pxl_in=%0d | magnitude=%0d valid=%b",
                  $time, pxl_in, magnitude, valid);
 

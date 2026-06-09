@@ -2,8 +2,10 @@ import sys
 import numpy as np
 from PIL import Image
 from scipy.signal import convolve2d
+from pathlib import Path
 
-# Match RTL kernels EXACTLY
+REPO_ROOT = Path(__file__).resolve().parent.parent
+
 Kx = np.array([
     [-1, 0, 1],
     [-2, 0, 2],
@@ -16,30 +18,47 @@ Ky = np.array([
     [-1, -2, -1]
 ], dtype=np.int32)
 
-# Load and resize original image
-img = Image.open(sys.argv[1]).convert("L").resize((32, 32))
-img = np.array(img, dtype=np.int32)
 
-# -----------------------------
-# ZERO PADDING (32 -> 34)
-# -----------------------------
-img_padded = np.pad(img, pad_width=1, mode='constant', constant_values=0)
+def load_input(path: Path):
+    path = Path(path)
 
-assert img_padded.shape == (34, 34)
+    # image input
+    if path.suffix.lower() in [".png", ".jpg", ".jpeg"]:
+        img = Image.open(path).convert("L").resize((32, 32))
+        return np.array(img, dtype=np.int32)
 
-# -----------------------------
-# CONVOLUTION (match RTL valid region)
-# -----------------------------
-gx = convolve2d(img_padded, Kx, mode="valid")
-gy = convolve2d(img_padded, Ky, mode="valid")
+    # txt input (1024 values)
+    values = np.loadtxt(path, dtype=str)
+    values = np.array([int(v, 2) for v in values], dtype=np.int32)
 
-assert gx.shape == (32, 32)
-assert gy.shape == (32, 32)
+    if values.size != 1024:
+        raise ValueError(f"Invalid pixel file: {path}")
 
-# -----------------------------
-# L1 MAGNITUDE (|Gx| + |Gy|)
-# -----------------------------
-magnitude = np.abs(gx) + np.abs(gy)
+    return values.reshape(32, 32)
 
-# Save flattened result (matches RTL stream order expectation)
-np.savetxt("sw_output.txt", magnitude.flatten(), fmt="%d")
+
+def main():
+    inp = Path(sys.argv[1])
+    name = inp.stem
+
+    img = load_input(inp)
+
+    padded = np.pad(img, 1, mode="constant")
+
+    gx = convolve2d(padded, Kx, mode="valid")
+    gy = convolve2d(padded, Ky, mode="valid")
+
+    mag = np.abs(gx) + np.abs(gy)
+
+    out_dir = Path("Material/sw_golden_model/output")
+    out_dir.mkdir(parents=True, exist_ok=True)
+
+    out_path = (REPO_ROOT / "Material" / "sw_golden_model" / "output" / f"{name}.txt")
+
+    np.savetxt(out_path, mag.flatten(), fmt="%d")
+
+    print(f"[SW] {name} -> {out_path.relative_to(REPO_ROOT)}")
+
+
+if __name__ == "__main__":
+    main()

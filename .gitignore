@@ -60,3 +60,14 @@ syn/reports/
 
 # NFS temporary files
 .nfs*
+
+# Material pipeline outputs
+Material/pixels/
+Material/sobel/output/
+Material/sobel/final/
+Material/sw_golden_model/output/
+Material/sw_golden_model/final/
+
+# SW comparison artifacts
+sw/compare_results_*.txt
+sw/sw_output.txt

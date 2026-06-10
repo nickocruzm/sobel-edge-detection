@@ -79,6 +79,8 @@ set_load 0.005 [get_ports "valid"]
 check_design
 
 # Perform synthesis with optimization
+compile_ultra
+set_fix_hold [get_clocks "clk"]
 compile_ultra -incremental
 
 # Fix naming and hierarchy for output

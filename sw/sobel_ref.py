@@ -6,12 +6,14 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parent.parent
 
+# Kx kernel (-1 0 1 / -2 0 2 / -1 0 1) that matches Gx kernal of RTL design
 Kx = np.array([
     [-1, 0, 1],
     [-2, 0, 2],
     [-1, 0, 1]
 ], dtype=np.int32)
 
+# Ky kernel (1 2 1 / 0 0 0 / -1 -2 -1) that matches Gy kernal of RTL design
 Ky = np.array([
     [ 1,  2,  1],
     [ 0,  0,  0],
@@ -43,11 +45,15 @@ def main():
 
     img = load_input(inp)
 
+    # RTL processes a streamed image with explicit 1-pixel zero-padding around the border.
+    # The software model applies the same padding to produce matching outputs.
     padded = np.pad(img, 1, mode="constant")
 
     gx = convolve2d(padded, Kx, mode="valid")
     gy = convolve2d(padded, Ky, mode="valid")
 
+    # The hardware implementation uses the L1-norm approximation of |Gx| + |Gy| — the cheap L1-norm approximation of edge strength
+    # The software golden model is modified accordingly to ensure bit-exact comparison with RTL output.
     mag = np.abs(gx) + np.abs(gy)
 
     out_dir = Path("Material/sw_golden_model/output")

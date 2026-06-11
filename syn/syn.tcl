@@ -1,6 +1,6 @@
 # Change the following to your home directory
-#set HOME      "/home/csgrad/shilt003"
-set HOME      "/home/csgrad/nmartinez"
+set HOME      "/home/csgrad/shilt003"
+#set HOME      "/home/csgrad/nmartinez"
 set DIRECTORY   "sobel-edge-detection"
 
 # Set search and library paths + RBVT
@@ -38,16 +38,16 @@ ungroup -all -flatten -simple_names
 
 # Constraints
 # Clock definition: 2 ns period (500 MHz), 50% duty cycle
-#create_clock -name "clk" -period 2 -waveform {0 1} [get_ports "clk"]
-#set_dont_touch_network [get_clocks "clk"]
+create_clock -name "clk" -period 2 -waveform {0 1} [get_ports "clk"]
+set_dont_touch_network [get_clocks "clk"]
 
 # Clock definition: 4 ns period (250 MHz), 50% duty cycle
 #create_clock -name "clk" -period 4 -waveform {0 1} [get_ports "clk"]
 #set_dont_touch_network [get_clocks "clk"]
 
 # Clock definition: 3 ns period (333.333 MHz), 50% duty cycle
-create_clock -name "clk" -period 3 -waveform {0 1} [get_ports "clk"]
-set_dont_touch_network [get_clocks "clk"]
+#create_clock -name "clk" -period 3 -waveform {0 1} [get_ports "clk"]
+#set_dont_touch_network [get_clocks "clk"]
 
 # Input and output delays relative to clock
 set_input_delay 0.1 -max -rise -clock "clk" [get_ports "reset"]

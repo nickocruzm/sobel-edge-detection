@@ -33,7 +33,7 @@ module sobel(
         .K_20(-1), .K_21(0), .K_22(1)
     ) conv_gx (
         .clk(clk), .reset(reset), .pxl_in(pxl_in),
-        .pxl_out(gx), .valid(valid),
+        .pxl_out(gx), .valid(conv_valid_wire),
         .reg_00(), .reg_01(), .reg_02(), .sr_0(),
         .reg_10(), .reg_11(), .reg_12(), .sr_1(),
         .reg_20(), .reg_21(), .reg_22()

@@ -25,7 +25,7 @@ set mw_logic0_net "VSS"
 set DESIGN_NAME     "conv"
 
 # Analyze the Verilog source files
-analyze -format verilog "conv.v mac.v register.v shift.v"
+analyze -format verilog "sobel.v conv.v mac.v register.v shift.v"
 
 # Elaborate the design
 elaborate ${DESIGN_NAME} -architecture verilog -library DEFAULT
@@ -79,6 +79,8 @@ set_load 0.005 [get_ports "valid"]
 check_design
 
 # Perform synthesis with optimization
+compile_ultra
+set_fix_hold [get_clocks "clk"]
 compile_ultra -incremental
 
 # Fix naming and hierarchy for output
